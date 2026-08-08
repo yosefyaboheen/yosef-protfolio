@@ -1,1803 +1,2040 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="ltr">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="referrer" content="origin" />
-  <title>يوسف ميسرة أبو هين | مطور تطبيقات موبايل ومصمم UI/UX</title>
-  <meta name="description"
-    content="معرض أعمال ثنائي اللغة ليوسف ميسرة أبو هين يعرض مشاريع Android وJava وSQL Server وUX/UI بتصميم فاخر ومتجاوب." />
-  <meta name="keywords"
-    content="Yosef Maysara Abu Hein, يوسف ميسرة أبو هين, Android, Java, SQL Server, UI UX, Figma, Portfolio" />
-  <meta name="author" content="Yosef Maysara Abu Hein" />
-  <meta property="og:title" content="يوسف ميسرة أبو هين | مطور تطبيقات موبايل ومصمم UI/UX" />
-  <meta property="og:description"
-    content="معرض أعمال ثنائي اللغة يعرض مشاريع البرمجة وقواعد البيانات وتجربة المستخدم بأسلوب داكن فاخر." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0c0c12" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b0c10;
-      --bg-soft: #12141b;
-      --panel: rgba(20, 23, 32, 0.88);
-      --panel-strong: rgba(13, 15, 22, 0.95);
-      --text: #f3f5fb;
-      --muted: #b3b8c7;
-      --line: rgba(255, 255, 255, 0.09);
-      --accent: #d4af37;
-      --accent-2: #62d0ff;
-      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --max: 1180px;
-      --grad: radial-gradient(circle at top right, rgba(212, 175, 55, 0.18), transparent 28%), radial-gradient(circle at bottom left, rgba(98, 208, 255, 0.12), transparent 30%), linear-gradient(180deg, #0b0c10 0%, #090a0f 100%);
-    }
-
-    [data-mode="light"] {
-      --bg: #f4f6fb;
-      --bg-soft: #ffffff;
-      --panel: rgba(255, 255, 255, 0.82);
-      --panel-strong: rgba(255, 255, 255, 0.95);
-      --text: #131722;
-      --muted: #596174;
-      --line: rgba(16, 22, 35, 0.08);
-      --accent: #865d11;
-      --accent-2: #1976d2;
-      --shadow: 0 18px 45px rgba(10, 18, 40, 0.10);
-      --grad: radial-gradient(circle at top right, rgba(134, 93, 17, 0.12), transparent 28%), radial-gradient(circle at bottom left, rgba(25, 118, 210, 0.10), transparent 30%), linear-gradient(180deg, #f6f8fd 0%, #eef3f8 100%);
-    }
-
-    /* 1. Deep Ocean — أزرق زمردي (Dark Mode) */
-    [data-theme="deep-ocean"] {
-      --bg: #06101f;
-      --bg-soft: #0d1b30;
-      --panel: rgba(13, 27, 48, 0.85);
-      --panel-strong: rgba(6, 16, 31, 0.95);
-      --text: #f3f7fa;
-      --muted: #8fa0b5;
-      --line: rgba(0, 201, 167, 0.15);
-      --accent: #00c9a7;
-      --accent-2: #7c5cfc;
-      --shadow: 0 20px 50px rgba(3, 8, 17, 0.6);
-      --grad: radial-gradient(circle at top right, rgba(0, 201, 167, 0.2), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(124, 92, 252, 0.15), transparent 35%),
-        linear-gradient(180deg, #06101f 0%, #030810 100%);
-    }
-
-    /* Deep Ocean (Light Mode) */
-    [data-theme="deep-ocean"][data-mode="light"] {
-      --bg: #f0f7f6;
-      --bg-soft: #ffffff;
-      --panel: rgba(255, 255, 255, 0.82);
-      --panel-strong: rgba(255, 255, 255, 0.95);
-      --text: #0b222c;
-      --muted: #536b75;
-      --line: rgba(0, 201, 167, 0.12);
-      --accent: #008f76;
-      --accent-2: #5d3df2;
-      --shadow: 0 18px 45px rgba(6, 31, 26, 0.08);
-      --grad: radial-gradient(circle at top right, rgba(0, 201, 167, 0.12), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(124, 92, 252, 0.10), transparent 35%),
-        linear-gradient(180deg, #f0f7f6 0%, #e2eeeb 100%);
-    }
-
-    /* 2. Sunset Slate — برتقالي دافئ (Dark Mode) */
-    [data-theme="sunset-slate"] {
-      --bg: #0f0c09;
-      --bg-soft: #1a1511;
-      --panel: rgba(32, 26, 21, 0.85);
-      --panel-strong: rgba(18, 14, 11, 0.95);
-      --text: #fdfaf7;
-      --muted: #baa699;
-      --line: rgba(255, 124, 53, 0.15);
-      --accent: #ff7c35;
-      --accent-2: #ffd166;
-      --shadow: 0 20px 50px rgba(10, 8, 6, 0.6);
-      --grad: radial-gradient(circle at top right, rgba(255, 124, 53, 0.18), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(255, 209, 102, 0.15), transparent 35%),
-        linear-gradient(180deg, #0f0c09 0%, #060504 100%);
-    }
-
-    /* Sunset Slate (Light Mode) */
-    [data-theme="sunset-slate"][data-mode="light"] {
-      --bg: #fdf9f5;
-      --bg-soft: #ffffff;
-      --panel: rgba(255, 255, 255, 0.82);
-      --panel-strong: rgba(255, 255, 255, 0.95);
-      --text: #2c1a0c;
-      --muted: #7d6b5e;
-      --line: rgba(255, 124, 53, 0.12);
-      --accent: #cc5410;
-      --accent-2: #cca20c;
-      --shadow: 0 18px 45px rgba(32, 21, 12, 0.08);
-      --grad: radial-gradient(circle at top right, rgba(255, 124, 53, 0.12), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(255, 209, 102, 0.10), transparent 35%),
-        linear-gradient(180deg, #fdf9f5 0%, #f6ebe1 100%);
-    }
-
-    /* 3. Midnight Rose — وردي فاخر (Dark Mode) */
-    [data-theme="midnight-rose"] {
-      --bg: #0c080f;
-      --bg-soft: #17101f;
-      --panel: rgba(29, 20, 38, 0.85);
-      --panel-strong: rgba(15, 10, 20, 0.95);
-      --text: #faf6fc;
-      --muted: #b5a2c2;
-      --line: rgba(232, 87, 122, 0.15);
-      --accent: #e8577a;
-      --accent-2: #c084fc;
-      --shadow: 0 20px 50px rgba(8, 5, 10, 0.6);
-      --grad: radial-gradient(circle at top right, rgba(232, 87, 122, 0.18), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(192, 132, 252, 0.15), transparent 35%),
-        linear-gradient(180deg, #0c080f 0%, #050306 100%);
-    }
-
-    /* Midnight Rose (Light Mode) */
-    [data-theme="midnight-rose"][data-mode="light"] {
-      --bg: #faf7fc;
-      --bg-soft: #ffffff;
-      --panel: rgba(255, 255, 255, 0.82);
-      --panel-strong: rgba(255, 255, 255, 0.95);
-      --text: #260f38;
-      --muted: #745b85;
-      --line: rgba(232, 87, 122, 0.12);
-      --accent: #c4294f;
-      --accent-2: #9d50ed;
-      --shadow: 0 18px 45px rgba(29, 10, 38, 0.08);
-      --grad: radial-gradient(circle at top right, rgba(232, 87, 122, 0.12), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(192, 132, 252, 0.10), transparent 35%),
-        linear-gradient(180deg, #faf7fc 0%, #efe5f5 100%);
-    }
-
-    /* تحسينات أزرار مغير الثيمات */
-    .theme-switcher-panel {
-      display: flex;
-      gap: 8px;
-      background: var(--panel-strong);
-      border: 1px solid var(--line);
-      padding: 6px;
-      border-radius: 999px;
-    }
-
-    .theme-dot-btn {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: transform 0.2s, border-color 0.2s;
-      position: relative;
-    }
-
-    .theme-dot-btn:hover {
-      transform: scale(1.15);
-    }
-
-    .theme-dot-btn.active {
-      border-color: var(--text);
-      transform: scale(1.1);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Cairo', system-ui, sans-serif;
-      background: var(--grad);
-      color: var(--text);
-      line-height: 1.75;
-      transition: background .35s ease, color .35s ease;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .glass {
-      background: var(--panel);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: color-mix(in srgb, var(--bg) 76%, transparent);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      min-height: 78px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      background: linear-gradient(145deg, var(--accent), var(--accent-2));
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #0d1018;
-      font-weight: 800;
-      font-size: 1.1rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .brand-mark .text-as,
-    .brand-mark .text-code {
-      position: absolute;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .brand-mark .text-code {
-      opacity: 0;
-      transform: translateY(15px) scale(0.8);
-    }
-
-    .brand-mark:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
-    }
-
-    .brand-mark:hover .text-as {
-      opacity: 0;
-      transform: translateY(-15px) scale(0.8);
-    }
-
-    .brand-mark:hover .text-code {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 1rem;
-    }
-
-    .brand-text span {
-      display: block;
-      font-size: .83rem;
-      color: var(--muted);
-      margin-top: -4px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 600;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      inset-inline-start: 0;
-      bottom: -8px;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      transition: width .25s ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text);
-    }
-
-    .controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .icon-btn,
-    .cta,
-    .ghost-btn,
-    .chip,
-    .lang-toggle button,
-    .filter-btn {
-      border: 1px solid var(--line);
-      background: var(--panel-strong);
-      color: var(--text);
-      border-radius: 999px;
-      padding: 12px 16px;
-      cursor: pointer;
-      transition: transform .2s ease, border-color .25s ease, background .25s ease, color .25s ease;
-    }
-
-    .icon-btn:hover,
-    .cta:hover,
-    .ghost-btn:hover,
-    .chip:hover,
-    .lang-toggle button:hover,
-    .filter-btn:hover {
-      transform: translateY(-2px);
-      border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
-    }
-
-    .cta {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #0d1119;
-      font-weight: 800;
-      border: none;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .22);
-    }
-
-    .ghost-btn {
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 84px 0 46px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .hero-card {
-      padding: 34px;
-      border-radius: var(--radius-xl);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      inset: auto -10% -50% auto;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 30%, transparent), transparent 62%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: .88rem;
-      font-weight: 700;
-      color: var(--accent);
-      background: color-mix(in srgb, var(--accent) 10%, transparent);
-      border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: 1.15;
-      margin: 0 0 14px;
-    }
-
-    .hero p.lead {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 60ch;
-      margin: 0 0 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .stat {
-      border-radius: 18px;
-      padding: 16px;
-      background: color-mix(in srgb, var(--panel-strong) 84%, transparent);
-      border: 1px solid var(--line);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.35rem;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .profile-shell {
-      padding: 24px;
-      border-radius: var(--radius-xl);
-      display: grid;
-      gap: 16px;
-      min-height: 100%;
-    }
-
-    .avatar-card {
-      border-radius: 24px;
-      padding: 24px;
-      min-height: 290px;
-      position: relative;
-      background: linear-gradient(180deg, color-mix(in srgb, var(--panel-strong) 90%, transparent), color-mix(in srgb, var(--bg-soft) 88%, transparent));
-      border: 1px solid var(--line);
-      overflow: hidden;
-    }
-
-    .avatar-frame {
-      aspect-ratio: 4/4.5;
-      border-radius: 22px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 20%),
-        linear-gradient(145deg, color-mix(in srgb, var(--accent) 35%, #1b1f29), color-mix(in srgb, var(--accent-2) 30%, #11161f));
-      border: 1px solid rgba(255, 255, 255, .12);
-      display: grid;
-      place-items: center;
-      position: relative;
-      min-height: 280px;
-      overflow: hidden;
-    }
-
-    .profile-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .profile-image.loaded {
-      opacity: 1;
-    }
-
-    .avatar-frame::after {
-      content: attr(data-label);
-      position: absolute;
-      bottom: 18px;
-      inset-inline: 18px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(0, 0, 0, .28);
-      color: #fff;
-      text-align: center;
-      font-weight: 700;
-      font-size: .92rem;
-      border: 1px solid rgba(255, 255, 255, .1);
-    }
-
-    .avatar-initials {
-      width: 112px;
-      height: 112px;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, .12);
-      border: 1px solid rgba(255, 255, 255, .18);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: white;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      cursor: pointer;
-    }
-
-    .avatar-initials::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      opacity: 0;
-      z-index: -1;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      transform: scale(0.5) rotate(45deg);
-      border-radius: 30px;
-    }
-
-    .avatar-initials .text-as,
-    .avatar-initials .text-code {
-      position: absolute;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .avatar-initials .text-code {
-      opacity: 0;
-      transform: translateY(20px) scale(0.8);
-      color: #0d1018;
-    }
-
-    .avatar-initials:hover {
-      transform: translateY(-8px);
-      border-color: transparent;
-      box-shadow: 0 15px 30px color-mix(in srgb, var(--accent) 30%, transparent);
-    }
-
-    .avatar-initials:hover::before {
-      opacity: 1;
-      transform: scale(1) rotate(0deg);
-    }
-
-    .avatar-initials:hover .text-as {
-      opacity: 0;
-      transform: translateY(-20px) scale(0.8);
-    }
-
-    .avatar-initials:hover .text-code {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .mini-points {
-      display: grid;
-      gap: 10px;
-    }
-
-    .mini-point {
-      display: flex;
-      gap: 10px;
-      align-items: start;
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--panel-strong) 80%, transparent);
-    }
-
-    .mini-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      margin-top: 10px;
-      flex: 0 0 auto;
-    }
-
-    section {
-      padding: 34px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      line-height: 1.2;
-    }
-
-    .section-head p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      max-width: 64ch;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .card {
-      padding: 28px;
-      border-radius: var(--radius-xl);
-    }
-
-    .tags {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .chip {
-      padding: 10px 14px;
-      font-weight: 700;
-      font-size: .92rem;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 14px;
-      margin-top: 10px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 14px;
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--panel-strong) 80%, transparent);
-    }
-
-    .timeline-item strong {
-      color: var(--accent);
-    }
-
-    .timeline-item p {
-      margin: 4px 0 0;
-      color: var(--muted);
-    }
-
-    .toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin: 18px 0 24px;
-    }
-
-    .filters,
-    .lang-toggle {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn.active,
-    .lang-toggle button.active {
-      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 26%, var(--panel-strong)), color-mix(in srgb, var(--accent-2) 18%, var(--panel-strong)));
-      border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      display: grid;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      transition: transform .25s ease, border-color .25s ease, opacity .25s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
-    }
-
-    .project-cover {
-      aspect-ratio: 16/10;
-      background:
-        linear-gradient(140deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .01)),
-        linear-gradient(135deg, color-mix(in srgb, var(--accent) 28%, #1c2130), color-mix(in srgb, var(--accent-2) 22%, #0d1118));
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-    }
-
-    .project-cover::before,
-    .project-cover::after {
-      content: '';
-      position: absolute;
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 20px;
-    }
-
-    .project-cover::before {
-      width: 72%;
-      height: 60%;
-      top: 14%;
-      inset-inline-start: 14%;
-    }
-
-    .project-cover::after {
-      width: 48%;
-      height: 18%;
-      bottom: 12%;
-      inset-inline-start: 26%;
-    }
-
-    .project-cover span {
-      z-index: 1;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .11);
-      border: 1px solid rgba(255, 255, 255, .15);
-      color: white;
-      font-weight: 800;
-      letter-spacing: .3px;
-    }
-
-    .project-body {
-      padding: 22px;
-    }
-
-    .meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .meta .badge {
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--accent) 12%, transparent);
-      color: var(--accent);
-      border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
-      font-size: .84rem;
-      font-weight: 800;
-    }
-
-    .meta small {
-      color: var(--muted);
-    }
-
-    .project-title {
-      margin: 0 0 10px;
-      font-size: 1.3rem;
-    }
-
-    .project-desc {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-
-    .project-tools {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .project-tools span {
-      border-radius: 999px;
-      padding: 8px 11px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: .84rem;
-      background: color-mix(in srgb, var(--panel-strong) 74%, transparent);
-    }
-
-    .project-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .vision-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-    }
-
-    .bullet-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .bullet-item {
-      display: flex;
-      gap: 12px;
-      align-items: start;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: color-mix(in srgb, var(--panel-strong) 78%, transparent);
-    }
-
-    .bullet-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 70%, transparent), color-mix(in srgb, var(--accent-2) 70%, transparent));
-      color: #10141b;
-      flex: 0 0 auto;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr .9fr;
-      gap: 22px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .contact-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--panel-strong) 80%, transparent);
-    }
-
-    .contact-item span {
-      color: var(--muted);
-    }
-
-    .footer {
-      padding: 28px 0 48px;
-      color: var(--muted);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .sr-only {
-      position: absolute !important;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="referrer" content="origin"/>
+    <title>يوسف ميسرة أبو هين | مطور تطبيقات موبايل ومصمم UI/UX</title>
+    <meta name="description"
+          content="معرض أعمال ثنائي اللغة ليوسف ميسرة أبو هين يعرض مشاريع Android وJava وSQL Server وUX/UI بتصميم فاخر ومتجاوب."/>
+    <meta name="keywords"
+          content="Yosef Maysara Abu Hein, يوسف ميسرة أبو هين, Android, Java, SQL Server, UI UX, Figma, Portfolio"/>
+    <meta name="author" content="Yosef Maysara Abu Hein"/>
+    <meta property="og:title" content="يوسف ميسرة أبو هين | مطور تطبيقات موبايل ومصمم UI/UX"/>
+    <meta property="og:description"
+          content="معرض أعمال ثنائي اللغة يعرض مشاريع البرمجة وقواعد البيانات وتجربة المستخدم بأسلوب داكن فاخر."/>
+    <meta property="og:type" content="website"/>
+    <meta name="theme-color" content="#0c0c12"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <style>
+        :root {
+          --bg: #0b0c10;
+          --bg-soft: #12141b;
+          --panel: rgba(20, 23, 32, 0.88);
+          --panel-strong: rgba(13, 15, 22, 0.95);
+          --text: #f3f5fb;
+          --muted: #b3b8c7;
+          --line: rgba(255, 255, 255, 0.09);
+          --accent: #d4af37;
+          --accent-2: #62d0ff;
+          --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+          --radius-xl: 28px;
+          --radius-lg: 20px;
+          --radius-md: 14px;
+          --max: 1180px;
+          --grad: radial-gradient(circle at top right, rgba(212, 175, 55, 0.18), transparent 28%), radial-gradient(circle at bottom left, rgba(98, 208, 255, 0.12), transparent 30%), linear-gradient(180deg, #0b0c10 0%, #090a0f 100%);
+        }
+
+        [data-mode="light"] {
+          --bg: #f4f6fb;
+          --bg-soft: #ffffff;
+          --panel: rgba(255, 255, 255, 0.82);
+          --panel-strong: rgba(255, 255, 255, 0.95);
+          --text: #131722;
+          --muted: #596174;
+          --line: rgba(16, 22, 35, 0.08);
+          --accent: #865d11;
+          --accent-2: #1976d2;
+          --shadow: 0 18px 45px rgba(10, 18, 40, 0.10);
+          --grad: radial-gradient(circle at top right, rgba(134, 93, 17, 0.12), transparent 28%), radial-gradient(circle at bottom left, rgba(25, 118, 210, 0.10), transparent 30%), linear-gradient(180deg, #f6f8fd 0%, #eef3f8 100%);
+        }
+
+        /* 1. Deep Ocean — أزرق زمردي (Dark Mode) */
+        [data-theme="deep-ocean"] {
+          --bg: #06101f;
+          --bg-soft: #0d1b30;
+          --panel: rgba(13, 27, 48, 0.85);
+          --panel-strong: rgba(6, 16, 31, 0.95);
+          --text: #f3f7fa;
+          --muted: #8fa0b5;
+          --line: rgba(0, 201, 167, 0.15);
+          --accent: #00c9a7;
+          --accent-2: #7c5cfc;
+          --shadow: 0 20px 50px rgba(3, 8, 17, 0.6);
+          --grad: radial-gradient(circle at top right, rgba(0, 201, 167, 0.2), transparent 35%),
+            radial-gradient(circle at bottom left, rgba(124, 92, 252, 0.15), transparent 35%),
+            linear-gradient(180deg, #06101f 0%, #030810 100%);
+        }
+
+        /* Deep Ocean (Light Mode) */
+        [data-theme="deep-ocean"][data-mode="light"] {
+          --bg: #f0f7f6;
+          --bg-soft: #ffffff;
+          --panel: rgba(255, 255, 255, 0.82);
+          --panel-strong: rgba(255, 255, 255, 0.95);
+          --text: #0b222c;
+          --muted: #536b75;
+          --line: rgba(0, 201, 167, 0.12);
+          --accent: #008f76;
+          --accent-2: #5d3df2;
+          --shadow: 0 18px 45px rgba(6, 31, 26, 0.08);
+          --grad: radial-gradient(circle at top right, rgba(0, 201, 167, 0.12), transparent 35%),
+            radial-gradient(circle at bottom left, rgba(124, 92, 252, 0.10), transparent 35%),
+            linear-gradient(180deg, #f0f7f6 0%, #e2eeeb 100%);
+        }
+
+        /* 2. Sunset Slate — برتقالي دافئ (Dark Mode) */
+        [data-theme="sunset-slate"] {
+          --bg: #0f0c09;
+          --bg-soft: #1a1511;
+          --panel: rgba(32, 26, 21, 0.85);
+          --panel-strong: rgba(18, 14, 11, 0.95);
+          --text: #fdfaf7;
+          --muted: #baa699;
+          --line: rgba(255, 124, 53, 0.15);
+          --accent: #ff7c35;
+          --accent-2: #ffd166;
+          --shadow: 0 20px 50px rgba(10, 8, 6, 0.6);
+          --grad: radial-gradient(circle at top right, rgba(255, 124, 53, 0.18), transparent 35%),
+            radial-gradient(circle at bottom left, rgba(255, 209, 102, 0.15), transparent 35%),
+            linear-gradient(180deg, #0f0c09 0%, #060504 100%);
+        }
+
+        /* Sunset Slate (Light Mode) */
+        [data-theme="sunset-slate"][data-mode="light"] {
+          --bg: #fdf9f5;
+          --bg-soft: #ffffff;
+          --panel: rgba(255, 255, 255, 0.82);
+          --panel-strong: rgba(255, 255, 255, 0.95);
+          --text: #2c1a0c;
+          --muted: #7d6b5e;
+          --line: rgba(255, 124, 53, 0.12);
+          --accent: #cc5410;
+          --accent-2: #cca20c;
+          --shadow: 0 18px 45px rgba(32, 21, 12, 0.08);
+          --grad: radial-gradient(circle at top right, rgba(255, 124, 53, 0.12), transparent 35%),
+            radial-gradient(circle at bottom left, rgba(255, 209, 102, 0.10), transparent 35%),
+            linear-gradient(180deg, #fdf9f5 0%, #f6ebe1 100%);
+        }
+
+        /* 3. Midnight Rose — وردي فاخر (Dark Mode) */
+        [data-theme="midnight-rose"] {
+          --bg: #0c080f;
+          --bg-soft: #17101f;
+          --panel: rgba(29, 20, 38, 0.85);
+          --panel-strong: rgba(15, 10, 20, 0.95);
+          --text: #faf6fc;
+          --muted: #b5a2c2;
+          --line: rgba(232, 87, 122, 0.15);
+          --accent: #e8577a;
+          --accent-2: #c084fc;
+          --shadow: 0 20px 50px rgba(8, 5, 10, 0.6);
+          --grad: radial-gradient(circle at top right, rgba(232, 87, 122, 0.18), transparent 35%),
+            radial-gradient(circle at bottom left, rgba(192, 132, 252, 0.15), transparent 35%),
+            linear-gradient(180deg, #0c080f 0%, #050306 100%);
+        }
+
+        /* Midnight Rose (Light Mode) */
+        [data-theme="midnight-rose"][data-mode="light"] {
+          --bg: #faf7fc;
+          --bg-soft: #ffffff;
+          --panel: rgba(255, 255, 255, 0.82);
+          --panel-strong: rgba(255, 255, 255, 0.95);
+          --text: #260f38;
+          --muted: #745b85;
+          --line: rgba(232, 87, 122, 0.12);
+          --accent: #c4294f;
+          --accent-2: #9d50ed;
+          --shadow: 0 18px 45px rgba(29, 10, 38, 0.08);
+          --grad: radial-gradient(circle at top right, rgba(232, 87, 122, 0.12), transparent 35%),
+            radial-gradient(circle at bottom left, rgba(192, 132, 252, 0.10), transparent 35%),
+            linear-gradient(180deg, #faf7fc 0%, #efe5f5 100%);
+        }
+
+        /* تحسينات أزرار مغير الثيمات */
+        .theme-switcher-panel {
+          display: flex;
+          gap: 8px;
+          background: var(--panel-strong);
+          border: 1px solid var(--line);
+          padding: 6px;
+          border-radius: 999px;
+        }
+
+        .theme-dot-btn {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          border: 2px solid transparent;
+          cursor: pointer;
+          transition: transform 0.2s, border-color 0.2s;
+          position: relative;
+        }
+
+        .theme-dot-btn:hover {
+          transform: scale(1.15);
+        }
+
+        .theme-dot-btn.active {
+          border-color: var(--text);
+          transform: scale(1.1);
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          margin: 0;
+          font-family: 'Cairo', system-ui, sans-serif;
+          background: var(--grad);
+          color: var(--text);
+          line-height: 1.75;
+          transition: background .35s ease, color .35s ease;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        img {
+          max-width: 100%;
+          display: block;
+        }
+
+        button {
+          font-family: inherit;
+        }
+
+        .container {
+          width: min(calc(100% - 32px), var(--max));
+          margin: 0 auto;
+        }
+
+        .glass {
+          background: var(--panel);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          border: 1px solid var(--line);
+          box-shadow: var(--shadow);
+        }
+
+        .site-header {
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          background: color-mix(in srgb, var(--bg) 76%, transparent);
+          backdrop-filter: blur(14px);
+          border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 14px;
+          min-height: 78px;
+        }
+
+        .brand {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+
+        .brand-mark {
+          width: 48px;
+          height: 48px;
+          border-radius: 16px;
+          background: linear-gradient(145deg, var(--accent), var(--accent-2));
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #0d1018;
+          font-weight: 800;
+          font-size: 1.1rem;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .brand-mark .text-as,
+        .brand-mark .text-code {
+          position: absolute;
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .brand-mark .text-code {
+          opacity: 0;
+          transform: translateY(15px) scale(0.8);
+        }
+
+        .brand-mark:hover {
+          transform: scale(1.05);
+          box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .brand-mark:hover .text-as {
+          opacity: 0;
+          transform: translateY(-15px) scale(0.8);
+        }
+
+        .brand-mark:hover .text-code {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+
+        .brand-text strong {
+          display: block;
+          font-size: 1rem;
+        }
+
+        .brand-text span {
+          display: block;
+          font-size: .83rem;
+          color: var(--muted);
+          margin-top: -4px;
+        }
+
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          flex-wrap: wrap;
+        }
+
+        .nav-links a {
+          color: var(--muted);
+          font-weight: 600;
+          position: relative;
+        }
+
+        .nav-links a::after {
+          content: '';
+          position: absolute;
+          inset-inline-start: 0;
+          bottom: -8px;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, var(--accent), var(--accent-2));
+          transition: width .25s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+          width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+          color: var(--text);
+        }
+
+        .controls {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .icon-btn,
+        .cta,
+        .ghost-btn,
+        .chip,
+        .lang-toggle button,
+        .filter-btn {
+          border: 1px solid var(--line);
+          background: var(--panel-strong);
+          color: var(--text);
+          border-radius: 999px;
+          padding: 12px 16px;
+          cursor: pointer;
+          transition: transform .2s ease, border-color .25s ease, background .25s ease, color .25s ease;
+        }
+
+        .icon-btn:hover,
+        .cta:hover,
+        .ghost-btn:hover,
+        .chip:hover,
+        .lang-toggle button:hover,
+        .filter-btn:hover {
+          transform: translateY(-2px);
+          border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+        }
+
+        .cta {
+          background: linear-gradient(135deg, var(--accent), var(--accent-2));
+          color: #0d1119;
+          font-weight: 800;
+          border: none;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, .22);
+        }
+
+        .ghost-btn {
+          color: var(--text);
+        }
+
+        .hero {
+          padding: 84px 0 46px;
+        }
+
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1.1fr .9fr;
+          gap: 24px;
+          align-items: stretch;
+        }
+
+        .hero-card {
+          padding: 34px;
+          border-radius: var(--radius-xl);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-card::before {
+          content: '';
+          position: absolute;
+          inset: auto -10% -50% auto;
+          width: 320px;
+          height: 320px;
+          border-radius: 50%;
+          background: radial-gradient(circle, color-mix(in srgb, var(--accent) 30%, transparent), transparent 62%);
+          pointer-events: none;
+        }
+
+        .eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 14px;
+          border-radius: 999px;
+          font-size: .88rem;
+          font-weight: 700;
+          color: var(--accent);
+          background: color-mix(in srgb, var(--accent) 10%, transparent);
+          border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
+          margin-bottom: 18px;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.2rem, 5vw, 4.2rem);
+          line-height: 1.15;
+          margin: 0 0 14px;
+        }
+
+        .hero p.lead {
+          font-size: 1.05rem;
+          color: var(--muted);
+          max-width: 60ch;
+          margin: 0 0 24px;
+        }
+
+        .hero-actions {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          margin-top: 10px;
+        }
+
+        .stat-row {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+          margin-top: 28px;
+        }
+
+        .stat {
+          border-radius: 18px;
+          padding: 16px;
+          background: color-mix(in srgb, var(--panel-strong) 84%, transparent);
+          border: 1px solid var(--line);
+        }
+
+        .stat strong {
+          display: block;
+          font-size: 1.35rem;
+          line-height: 1;
+          margin-bottom: 8px;
+        }
+
+        .stat span {
+          color: var(--muted);
+          font-size: .92rem;
+        }
+
+        .profile-shell {
+          padding: 24px;
+          border-radius: var(--radius-xl);
+          display: grid;
+          gap: 16px;
+          min-height: 100%;
+        }
+
+        .avatar-card {
+          border-radius: 24px;
+          padding: 24px;
+          min-height: 290px;
+          position: relative;
+          background: linear-gradient(180deg, color-mix(in srgb, var(--panel-strong) 90%, transparent), color-mix(in srgb, var(--bg-soft) 88%, transparent));
+          border: 1px solid var(--line);
+          overflow: hidden;
+        }
+
+        .avatar-frame {
+          aspect-ratio: 4/4.5;
+          border-radius: 22px;
+          background:
+            radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 20%),
+            linear-gradient(145deg, color-mix(in srgb, var(--accent) 35%, #1b1f29), color-mix(in srgb, var(--accent-2) 30%, #11161f));
+          border: 1px solid rgba(255, 255, 255, .12);
+          display: grid;
+          place-items: center;
+          position: relative;
+          min-height: 280px;
+          overflow: hidden;
+        }
+
+        .profile-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 1;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+        }
+
+        .profile-image.loaded {
+          opacity: 1;
+        }
+
+        .avatar-frame::after {
+          content: attr(data-label);
+          position: absolute;
+          bottom: 18px;
+          inset-inline: 18px;
+          padding: 10px 12px;
+          border-radius: 14px;
+          background: rgba(0, 0, 0, .28);
+          color: #fff;
+          text-align: center;
+          font-weight: 700;
+          font-size: .92rem;
+          border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .avatar-initials {
+          width: 112px;
+          height: 112px;
+          border-radius: 30px;
+          background: rgba(255, 255, 255, .12);
+          border: 1px solid rgba(255, 255, 255, .18);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2.2rem;
+          font-weight: 800;
+          color: white;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18);
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+          cursor: pointer;
+        }
+
+        .avatar-initials::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, var(--accent), var(--accent-2));
+          opacity: 0;
+          z-index: -1;
+          transition: opacity 0.4s ease, transform 0.4s ease;
+          transform: scale(0.5) rotate(45deg);
+          border-radius: 30px;
+        }
+
+        .avatar-initials .text-as,
+        .avatar-initials .text-code {
+          position: absolute;
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .avatar-initials .text-code {
+          opacity: 0;
+          transform: translateY(20px) scale(0.8);
+          color: #0d1018;
+        }
+
+        .avatar-initials:hover {
+          transform: translateY(-8px);
+          border-color: transparent;
+          box-shadow: 0 15px 30px color-mix(in srgb, var(--accent) 30%, transparent);
+        }
+
+        .avatar-initials:hover::before {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+
+        .avatar-initials:hover .text-as {
+          opacity: 0;
+          transform: translateY(-20px) scale(0.8);
+        }
+
+        .avatar-initials:hover .text-code {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+
+        .mini-points {
+          display: grid;
+          gap: 10px;
+        }
+
+        .mini-point {
+          display: flex;
+          gap: 10px;
+          align-items: start;
+          padding: 14px;
+          border-radius: 18px;
+          border: 1px solid var(--line);
+          background: color-mix(in srgb, var(--panel-strong) 80%, transparent);
+        }
+
+        .mini-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, var(--accent), var(--accent-2));
+          margin-top: 10px;
+          flex: 0 0 auto;
+        }
+
+        section {
+          padding: 34px 0;
+        }
+
+        .section-head {
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+          gap: 18px;
+          margin-bottom: 18px;
+        }
+
+        .section-head h2 {
+          margin: 0;
+          font-size: clamp(1.7rem, 3vw, 2.5rem);
+          line-height: 1.2;
+        }
+
+        .section-head p {
+          margin: 8px 0 0;
+          color: var(--muted);
+          max-width: 64ch;
+        }
+
+        .about-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 22px;
+        }
+
+        .card {
+          padding: 28px;
+          border-radius: var(--radius-xl);
+        }
+
+        .tags {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-top: 18px;
+        }
+
+        .chip {
+          padding: 10px 14px;
+          font-weight: 700;
+          font-size: .92rem;
+        }
+
+        .timeline {
+          display: grid;
+          gap: 14px;
+          margin-top: 10px;
+        }
+
+        .timeline-item {
+          display: grid;
+          grid-template-columns: 120px 1fr;
+          gap: 14px;
+          padding: 16px;
+          border-radius: 18px;
+          border: 1px solid var(--line);
+          background: color-mix(in srgb, var(--panel-strong) 80%, transparent);
+        }
+
+        .timeline-item strong {
+          color: var(--accent);
+        }
+
+        .timeline-item p {
+          margin: 4px 0 0;
+          color: var(--muted);
+        }
+
+        .toolbar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 14px;
+          flex-wrap: wrap;
+          margin: 18px 0 24px;
+        }
+
+        .filters,
+        .lang-toggle {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .filter-btn.active,
+        .lang-toggle button.active {
+          background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 26%, var(--panel-strong)), color-mix(in srgb, var(--accent-2) 18%, var(--panel-strong)));
+          border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+        }
+
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 20px;
+        }
+
+        .project-card {
+          border-radius: var(--radius-xl);
+          overflow: hidden;
+          display: grid;
+          background: var(--panel);
+          border: 1px solid var(--line);
+          box-shadow: var(--shadow);
+          transition: transform .25s ease, border-color .25s ease, opacity .25s ease;
+        }
+
+        .project-card:hover {
+          transform: translateY(-5px);
+          border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+        }
+
+        .project-cover {
+          aspect-ratio: 16/10;
+          background:
+            linear-gradient(140deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .01)),
+            linear-gradient(135deg, color-mix(in srgb, var(--accent) 28%, #1c2130), color-mix(in srgb, var(--accent-2) 22%, #0d1118));
+          position: relative;
+          overflow: hidden;
+          display: grid;
+          place-items: center;
+        }
+
+        .project-cover::before,
+        .project-cover::after {
+          content: '';
+          position: absolute;
+          border: 1px solid rgba(255, 255, 255, .12);
+          border-radius: 20px;
+        }
+
+        .project-cover::before {
+          width: 72%;
+          height: 60%;
+          top: 14%;
+          inset-inline-start: 14%;
+        }
+
+        .project-cover::after {
+          width: 48%;
+          height: 18%;
+          bottom: 12%;
+          inset-inline-start: 26%;
+        }
+
+        .project-cover span {
+          z-index: 1;
+          padding: 10px 16px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, .11);
+          border: 1px solid rgba(255, 255, 255, .15);
+          color: white;
+          font-weight: 800;
+          letter-spacing: .3px;
+        }
+
+        .project-body {
+          padding: 22px;
+        }
+
+        .meta {
+          display: flex;
+          justify-content: space-between;
+          gap: 12px;
+          align-items: center;
+          flex-wrap: wrap;
+          margin-bottom: 12px;
+        }
+
+        .meta .badge {
+          padding: 7px 12px;
+          border-radius: 999px;
+          background: color-mix(in srgb, var(--accent) 12%, transparent);
+          color: var(--accent);
+          border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
+          font-size: .84rem;
+          font-weight: 800;
+        }
+
+        .meta small {
+          color: var(--muted);
+        }
+
+        .project-title {
+          margin: 0 0 10px;
+          font-size: 1.3rem;
+        }
+
+        .project-desc {
+          margin: 0 0 16px;
+          color: var(--muted);
+        }
+
+        .project-tools {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          margin-bottom: 18px;
+        }
+
+        .project-tools span {
+          border-radius: 999px;
+          padding: 8px 11px;
+          border: 1px solid var(--line);
+          color: var(--muted);
+          font-size: .84rem;
+          background: color-mix(in srgb, var(--panel-strong) 74%, transparent);
+        }
+
+        .project-links {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .vision-grid {
+          display: grid;
+          grid-template-columns: 1.1fr .9fr;
+          gap: 22px;
+        }
+
+        .bullet-list {
+          display: grid;
+          gap: 14px;
+        }
+
+        .bullet-item {
+          display: flex;
+          gap: 12px;
+          align-items: start;
+          padding: 14px 16px;
+          border: 1px solid var(--line);
+          border-radius: 18px;
+          background: color-mix(in srgb, var(--panel-strong) 78%, transparent);
+        }
+
+        .bullet-icon {
+          width: 38px;
+          height: 38px;
+          border-radius: 12px;
+          display: grid;
+          place-items: center;
+          font-weight: 800;
+          background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 70%, transparent), color-mix(in srgb, var(--accent-2) 70%, transparent));
+          color: #10141b;
+          flex: 0 0 auto;
+        }
+
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr .9fr;
+          gap: 22px;
+        }
+
+        .contact-list {
+          display: grid;
+          gap: 12px;
+          margin-top: 16px;
+        }
+
+        .contact-item {
+          display: flex;
+          justify-content: space-between;
+          gap: 12px;
+          align-items: center;
+          padding: 16px 18px;
+          border-radius: 18px;
+          border: 1px solid var(--line);
+          background: color-mix(in srgb, var(--panel-strong) 80%, transparent);
+        }
+
+        .contact-item span {
+          color: var(--muted);
+        }
+
+        .footer {
+          padding: 28px 0 48px;
+          color: var(--muted);
+        }
+
+        .footer-inner {
+          display: flex;
+          justify-content: space-between;
+          gap: 16px;
+          flex-wrap: wrap;
+          align-items: center;
+          border-top: 1px solid var(--line);
+          padding-top: 22px;
+        }
+
+       .reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
     @media (max-width: 980px) {
-
-      .hero-grid,
-      .about-grid,
-      .vision-grid,
-      .contact-grid,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        min-height: auto;
-        padding: 14px 0;
-        align-items: start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        order: 3;
-      }
-
-      .controls {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .stat-row {
-        grid-template-columns: 1fr;
+      .reveal,
+      .reveal.in-view {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
       }
     }
+        .sr-only {
+          position: absolute !important;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
 
-    @media (max-width: 640px) {
-      .container {
-        width: min(calc(100% - 22px), var(--max));
-      }
+        @media (max-width: 980px) {
 
-      .hero {
-        padding-top: 52px;
-      }
+          .hero-grid,
+          .about-grid,
+          .vision-grid,
+          .contact-grid,
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
 
-      .hero-card,
-      .card,
-      .profile-shell {
-        padding: 22px;
-      }
+          .nav {
+            min-height: auto;
+            padding: 14px 0;
+            align-items: start;
+            flex-direction: column;
+          }
 
-      .timeline-item {
-        grid-template-columns: 1fr;
-      }
+          .nav-links {
+            order: 3;
+          }
 
-      .toolbar,
-      .section-head {
-        align-items: start;
-      }
+          .controls {
+            width: 100%;
+            justify-content: flex-start;
+          }
 
-      .project-links,
-      .hero-actions {
-        flex-direction: column;
-      }
+          .stat-row {
+            grid-template-columns: 1fr;
+          }
+        }
 
-      .cta,
-      .ghost-btn {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-      }
-    }
+        @media (max-width: 640px) {
+          .container {
+            width: min(calc(100% - 22px), var(--max));
+          }
 
-    /* ═══════════ Contact Form ═══════════ */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-top: 22px;
-      text-align: start;
-    }
+          .hero {
+            padding-top: 52px;
+          }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+          .hero-card,
+          .card,
+          .profile-shell {
+            padding: 22px;
+          }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+          .timeline-item {
+            grid-template-columns: 1fr;
+          }
 
-    .form-group label {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-    }
+          .toolbar,
+          .section-head {
+            align-items: start;
+          }
 
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 16px;
-      background-color: color-mix(in srgb, var(--bg-soft) 92%, transparent);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      color: var(--text);
-      font-family: inherit;
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    }
+          .project-links,
+          .hero-actions {
+            flex-direction: column;
+          }
 
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: color-mix(in srgb, var(--muted) 70%, transparent);
-    }
+          .cta,
+          .ghost-btn {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+          }
+        }
 
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
-      background-color: color-mix(in srgb, var(--panel-strong) 95%, transparent);
-    }
+        /* ═══════════ Contact Form ═══════════ */
+        .contact-form {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          margin-top: 22px;
+          text-align: start;
+        }
 
-    .form-group input.invalid,
-    .form-group textarea.invalid {
-      border-color: #ff6b6b;
-      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
-    }
+        .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
 
-    .form-group textarea {
-      resize: vertical;
-      min-height: 130px;
-      line-height: 1.6;
-    }
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
 
-    .submit-btn {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #0d1119;
-      padding: 14px 18px;
-      border: none;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-      margin-top: 6px;
-      box-shadow: 0 10px 25px color-mix(in srgb, var(--accent) 22%, transparent);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
+        .form-group label {
+          color: var(--muted);
+          font-size: 14px;
+          font-weight: 600;
+        }
 
-    .submit-btn:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 32px color-mix(in srgb, var(--accent) 32%, transparent);
-    }
+        .form-group input,
+        .form-group textarea {
+          width: 100%;
+          padding: 14px 16px;
+          background-color: color-mix(in srgb, var(--bg-soft) 92%, transparent);
+          border: 1px solid var(--line);
+          border-radius: 14px;
+          color: var(--text);
+          font-family: inherit;
+          font-size: 15px;
+          outline: none;
+          transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
 
-    .submit-btn:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-    }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+          color: color-mix(in srgb, var(--muted) 70%, transparent);
+        }
 
-    .submit-btn .spinner {
-      width: 16px;
-      height: 16px;
-      border: 2px solid rgba(13, 17, 25, 0.3);
-      border-top-color: #0d1119;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
+        .form-group input:focus,
+        .form-group textarea:focus {
+          border-color: var(--accent);
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+          background-color: color-mix(in srgb, var(--panel-strong) 95%, transparent);
+        }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+        .form-group input.invalid,
+        .form-group textarea.invalid {
+          border-color: #ff6b6b;
+          box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
+        }
 
-    .form-status {
-      margin-top: 4px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      display: none;
-      align-items: center;
-      gap: 10px;
-    }
+        .form-group textarea {
+          resize: vertical;
+          min-height: 130px;
+          line-height: 1.6;
+        }
 
-    .form-status.show {
-      display: flex;
-    }
+        .submit-btn {
+          background: linear-gradient(135deg, var(--accent), var(--accent-2));
+          color: #0d1119;
+          padding: 14px 18px;
+          border: none;
+          border-radius: 14px;
+          font-weight: 800;
+          font-size: 16px;
+          cursor: pointer;
+          transition: transform 0.2s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+          margin-top: 6px;
+          box-shadow: 0 10px 25px color-mix(in srgb, var(--accent) 22%, transparent);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        }
 
-    .form-status.success {
-      background: color-mix(in srgb, #00c9a7 12%, transparent);
-      border: 1px solid color-mix(in srgb, #00c9a7 35%, var(--line));
-      color: color-mix(in srgb, #00c9a7 80%, var(--text));
-    }
+        .submit-btn:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 32px color-mix(in srgb, var(--accent) 32%, transparent);
+        }
 
-    .form-status.error {
-      background: color-mix(in srgb, #ff6b6b 12%, transparent);
-      border: 1px solid color-mix(in srgb, #ff6b6b 35%, var(--line));
-      color: color-mix(in srgb, #ff6b6b 80%, var(--text));
-    }
+        .submit-btn:disabled {
+          opacity: 0.65;
+          cursor: not-allowed;
+        }
 
-    /* ═══════════ Contact Info Cards (إيميل/جوال/لينكدإن) ═══════════ */
-    .contact-card {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--panel-strong) 80%, transparent);
-      transition: transform 0.2s ease, border-color 0.25s ease;
-      color: inherit;
-    }
+        .submit-btn .spinner {
+          width: 16px;
+          height: 16px;
+          border: 2px solid rgba(13, 17, 25, 0.3);
+          border-top-color: #0d1119;
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+        }
 
-    .contact-card:hover {
-      transform: translateY(-2px);
-      border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
-    }
+        @keyframes spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
 
-    .contact-card .icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg,
-          color-mix(in srgb, var(--accent) 70%, transparent),
-          color-mix(in srgb, var(--accent-2) 70%, transparent));
-      color: #0d1119;
-      flex: 0 0 auto;
-    }
+        .form-status {
+          margin-top: 4px;
+          padding: 12px 14px;
+          border-radius: 12px;
+          font-size: 14px;
+          font-weight: 600;
+          display: none;
+          align-items: center;
+          gap: 10px;
+        }
 
-    .contact-card .icon-wrap svg {
-      width: 22px;
-      height: 22px;
-      stroke-width: 2;
-    }
+        .form-status.show {
+          display: flex;
+        }
 
-    .contact-card .meta {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-      flex: 1;
-    }
+        .form-status.success {
+          background: color-mix(in srgb, #00c9a7 12%, transparent);
+          border: 1px solid color-mix(in srgb, #00c9a7 35%, var(--line));
+          color: color-mix(in srgb, #00c9a7 80%, var(--text));
+        }
 
-    .contact-card .meta strong {
-      font-size: 0.95rem;
-      color: var(--text);
-    }
+        .form-status.error {
+          background: color-mix(in srgb, #ff6b6b 12%, transparent);
+          border: 1px solid color-mix(in srgb, #ff6b6b 35%, var(--line));
+          color: color-mix(in srgb, #ff6b6b 80%, var(--text));
+        }
 
-    .contact-card .meta span {
-      color: var(--muted);
-      font-size: 0.88rem;
-      direction: ltr;
-      text-align: start;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
+        /* ═══════════ Contact Info Cards (إيميل/جوال/لينكدإن) ═══════════ */
+        .contact-card {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 16px 18px;
+          border-radius: 18px;
+          border: 1px solid var(--line);
+          background: color-mix(in srgb, var(--panel-strong) 80%, transparent);
+          transition: transform 0.2s ease, border-color 0.25s ease;
+          color: inherit;
+        }
 
-    .contact-card .arrow {
-      color: var(--muted);
-      flex: 0 0 auto;
-      transition: transform 0.2s ease, color 0.25s ease;
-    }
+        .contact-card:hover {
+          transform: translateY(-2px);
+          border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+        }
 
-    .contact-card:hover .arrow {
-      transform: translateX(4px);
-      color: var(--accent);
-    }
+        .contact-card .icon-wrap {
+          width: 44px;
+          height: 44px;
+          border-radius: 14px;
+          display: grid;
+          place-items: center;
+          background: linear-gradient(135deg,
+              color-mix(in srgb, var(--accent) 70%, transparent),
+              color-mix(in srgb, var(--accent-2) 70%, transparent));
+          color: #0d1119;
+          flex: 0 0 auto;
+        }
 
-    [dir="rtl"] .contact-card:hover .arrow {
-      transform: translateX(-4px);
-    }
+        .contact-card .icon-wrap svg {
+          width: 22px;
+          height: 22px;
+          stroke-width: 2;
+        }
 
-    /* ═══════════ Contact Card Buttons (نسخ / واتساب / لينكدإن) ═══════════ */
-    .contact-card .meta {
-      flex: 1;
-      min-width: 0;
-      cursor: default;
-    }
+        .contact-card .meta {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          min-width: 0;
+          flex: 1;
+        }
 
-    .contact-value {
-      color: var(--muted);
-      font-size: 0.88rem;
-      direction: ltr;
-      text-align: start;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      user-select: all;
-      cursor: text;
-    }
+        .contact-card .meta strong {
+          font-size: 0.95rem;
+          color: var(--text);
+        }
 
-    .action-group {
-      display: flex;
-      gap: 8px;
-      flex: 0 0 auto;
-    }
+        .contact-card .meta span {
+          color: var(--muted);
+          font-size: 0.88rem;
+          direction: ltr;
+          text-align: start;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
 
-    .icon-action {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--panel-strong) 92%, transparent);
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.25s ease,
-        background 0.25s ease, color 0.25s ease;
-      position: relative;
-      padding: 0;
-    }
+        .contact-card .arrow {
+          color: var(--muted);
+          flex: 0 0 auto;
+          transition: transform 0.2s ease, color 0.25s ease;
+        }
 
-    .icon-action svg {
-      width: 18px;
-      height: 18px;
-      stroke-width: 2;
-    }
+        .contact-card:hover .arrow {
+          transform: translateX(4px);
+          color: var(--accent);
+        }
 
-    .icon-action:hover {
-      transform: translateY(-2px);
-      border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
-      color: var(--accent);
-    }
+        [dir="rtl"] .contact-card:hover .arrow {
+          transform: translateX(-4px);
+        }
 
-    .icon-action:active {
-      transform: scale(0.95);
-    }
+        /* ═══════════ Contact Card Buttons (نسخ / واتساب / لينكدإن) ═══════════ */
+        .contact-card .meta {
+          flex: 1;
+          min-width: 0;
+          cursor: default;
+        }
 
-    .icon-action.copied {
-      border-color: #00c9a7;
-      color: #00c9a7;
-      background: color-mix(in srgb, #00c9a7 14%, var(--panel-strong));
-    }
+        .contact-value {
+          color: var(--muted);
+          font-size: 0.88rem;
+          direction: ltr;
+          text-align: start;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          user-select: all;
+          cursor: text;
+        }
 
-    /* زر واتساب — لون أخضر مميز */
-    .icon-action.whatsapp {
-      color: #25D366;
-      border-color: color-mix(in srgb, #25D366 30%, var(--line));
-    }
+        .action-group {
+          display: flex;
+          gap: 8px;
+          flex: 0 0 auto;
+        }
 
-    .icon-action.whatsapp:hover {
-      border-color: #25D366;
-      color: #25D366;
-      background: color-mix(in srgb, #25D366 12%, var(--panel-strong));
-    }
+        .icon-action {
+          width: 40px;
+          height: 40px;
+          border-radius: 12px;
+          border: 1px solid var(--line);
+          background: color-mix(in srgb, var(--panel-strong) 92%, transparent);
+          color: var(--text);
+          display: grid;
+          place-items: center;
+          cursor: pointer;
+          transition: transform 0.2s ease, border-color 0.25s ease,
+            background 0.25s ease, color 0.25s ease;
+          position: relative;
+          padding: 0;
+        }
 
-    /* زر لينكدإن — لون أزرق مميز */
-    .icon-action.linkedin {
-      color: #0A66C2;
-      border-color: color-mix(in srgb, #0A66C2 30%, var(--line));
-    }
+        .icon-action svg {
+          width: 18px;
+          height: 18px;
+          stroke-width: 2;
+        }
 
-    .icon-action.linkedin:hover {
-      border-color: #0A66C2;
-      color: #0A66C2;
-      background: color-mix(in srgb, #0A66C2 12%, var(--panel-strong));
-    }
+        .icon-action:hover {
+          transform: translateY(-2px);
+          border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+          color: var(--accent);
+        }
 
-    /* Tooltip "تم النسخ" */
-    .icon-action::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: calc(100% + 8px);
-      inset-inline-start: 50%;
-      transform: translateX(-50%);
-      background: #0d1119;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      border: 1px solid var(--line);
-      z-index: 10;
-    }
+        .icon-action:active {
+          transform: scale(0.95);
+        }
 
-    .icon-action.show-tooltip::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(-2px);
-    }
+        .icon-action.copied {
+          border-color: #00c9a7;
+          color: #00c9a7;
+          background: color-mix(in srgb, #00c9a7 14%, var(--panel-strong));
+        }
 
-    @media (max-width: 640px) {
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-    }
+        /* زر واتساب — لون أخضر مميز */
+        .icon-action.whatsapp {
+          color: #25D366;
+          border-color: color-mix(in srgb, #25D366 30%, var(--line));
+        }
 
-    /* Modal Styles */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      display: none;
-      place-items: center;
-      z-index: 2000;
-      padding: 20px;
-    }
+        .icon-action.whatsapp:hover {
+          border-color: #25D366;
+          color: #25D366;
+          background: color-mix(in srgb, #25D366 12%, var(--panel-strong));
+        }
 
-    .modal-overlay.active {
-      display: grid;
-    }
+        /* زر لينكدإن — لون أزرق مميز */
+        .icon-action.linkedin {
+          color: #0A66C2;
+          border-color: color-mix(in srgb, #0A66C2 30%, var(--line));
+        }
 
-    .modal-content {
-      width: min(900px, 100%);
-      max-height: 85vh;
-      border-radius: var(--radius-xl);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
+        .icon-action.linkedin:hover {
+          border-color: #0A66C2;
+          color: #0A66C2;
+          background: color-mix(in srgb, #0A66C2 12%, var(--panel-strong));
+        }
 
-    .modal-header {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        /* Tooltip "تم النسخ" */
+        .icon-action::after {
+          content: attr(data-tooltip);
+          position: absolute;
+          bottom: calc(100% + 8px);
+          inset-inline-start: 50%;
+          transform: translateX(-50%);
+          background: #0d1119;
+          color: #fff;
+          padding: 6px 12px;
+          border-radius: 8px;
+          font-size: 12px;
+          font-weight: 600;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.2s ease, transform 0.2s ease;
+          border: 1px solid var(--line);
+          z-index: 10;
+        }
 
-    .modal-body {
-      padding: 24px;
-      overflow-y: auto;
-      background: #0d0f14;
-      color: #e0e6ed;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
+        .icon-action.show-tooltip::after {
+          opacity: 1;
+          transform: translateX(-50%) translateY(-2px);
+        }
 
-    .modal-body pre {
-      margin: 0;
-      white-space: pre-wrap;
-      word-break: break-all;
-    }
+        @media (max-width: 640px) {
+          .form-row {
+            grid-template-columns: 1fr;
+          }
+        }
 
-    .modal-footer {
-      padding: 20px 24px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-    }
-  
+        /* Modal Styles */
+        .modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.85);
+          backdrop-filter: blur(8px);
+          display: none;
+          place-items: center;
+          z-index: 2000;
+          padding: 20px;
+        }
 
-    /* ═══════════ Project upgrade — keeps the original visual system ═══════════ */
-    .project-cover img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; transition:transform .55s ease, filter .4s ease; }
-    .project-cover::before, .project-cover::after { z-index:1; pointer-events:none; }
-    .project-cover::before { background:linear-gradient(180deg, transparent 42%, rgba(0,0,0,.68)); width:100%; height:100%; inset:0; border:0; border-radius:0; }
-    .project-cover::after { width:72%; height:60%; top:14%; bottom:auto; inset-inline-start:14%; border-color:rgba(255,255,255,.2); }
-    .project-card:hover .project-cover img { transform:scale(1.035); filter:saturate(1.08) contrast(1.03); }
-    .project-cover span { position:absolute !important; inset-inline:22px; bottom:20px; width:max-content; max-width:calc(100% - 44px); background:rgba(8,11,18,.72); backdrop-filter:blur(10px); }
-    .project-index { color:var(--accent); font-weight:800; font-size:.86rem; letter-spacing:.08em; }
-    .skill-stack { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:18px; }
-    .skill-stack > div { padding:14px; border-radius:18px; border:1px solid var(--line); background:color-mix(in srgb,var(--panel-strong) 82%,transparent); }
-    .skill-stack strong { display:block; color:var(--accent); margin-bottom:4px; }
-    .skill-stack span { color:var(--muted); font-size:.86rem; }
+        .modal-overlay.active {
+          display: grid;
+        }
 
-    .project-modal-overlay { position:fixed; inset:0; z-index:3000; display:none; place-items:center; padding:18px; background:rgba(2,4,9,.9); backdrop-filter:blur(13px); }
-    .project-modal-overlay.active { display:grid; }
-    .project-modal { color:var(--text); width:min(1180px,100%); max-height:94vh; border-radius:var(--radius-xl); overflow:hidden; display:grid; grid-template-rows:auto 1fr; background:var(--panel-strong); border:1px solid var(--line); box-shadow:0 32px 100px rgba(0,0,0,.62); }
-    .project-modal-top { display:flex; justify-content:space-between; align-items:center; gap:14px; padding:16px 20px; border-bottom:1px solid var(--line); }
-    .project-modal-top small { color:var(--accent); font-weight:800; }
-    .project-modal-top h3 { margin:2px 0 0; font-size:1.25rem; color:var(--text); }
-    .project-modal-layout { min-height:0; overflow-y:auto; display:grid; grid-template-columns:minmax(0,1.55fr) minmax(300px,.85fr); }
-    .gallery-pane { min-width:0; padding:22px; border-inline-end:1px solid var(--line); background:color-mix(in srgb,var(--bg) 82%,#000); }
-    .gallery-stage { position:relative; min-height:470px; border-radius:24px; overflow:hidden; display:grid; place-items:center; background:#080a10; border:1px solid var(--line); }
-    .gallery-stage img { width:100%; height:100%; max-height:650px; object-fit:contain; display:block; opacity:1; transition:opacity .2s ease; }
-    .gallery-stage img.switching { opacity:.15; }
-    .gallery-nav { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,.22); background:rgba(5,8,14,.74); color:#fff; display:grid; place-items:center; font-size:1.55rem; cursor:pointer; z-index:4; backdrop-filter:blur(8px); }
-    .gallery-nav:hover { background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#0b0e15; border-color:transparent; }
-    .gallery-prev { inset-inline-start:16px; }
-    .gallery-next { inset-inline-end:16px; }
-    .gallery-counter { position:absolute; top:16px; inset-inline-end:16px; padding:7px 12px; border-radius:999px; background:rgba(4,7,12,.72); color:#fff; font-weight:700; font-size:.84rem; border:1px solid rgba(255,255,255,.14); }
-    .gallery-caption { color:var(--muted); text-align:center; min-height:28px; margin:12px 0 4px; }
-    .gallery-thumbs { display:flex; gap:9px; overflow-x:auto; padding:8px 2px 4px; scrollbar-width:thin; }
-    .gallery-thumb { flex:0 0 100px; height:65px; border-radius:12px; overflow:hidden; padding:0; border:2px solid transparent; background:var(--panel); cursor:pointer; opacity:.68; }
-    .gallery-thumb img { width:100%; height:100%; object-fit:cover; }
-    .gallery-thumb.active { opacity:1; border-color:var(--accent); transform:translateY(-2px); }
-    .project-info-pane { padding:25px; overflow-y:auto; }
-    .project-info-pane h2, .project-info-pane h3 { color:var(--text); }
-    .project-info-pane h2 { margin:0 0 8px; font-size:clamp(1.55rem,3vw,2.35rem); line-height:1.25; }
-    .project-type { display:inline-flex; padding:7px 12px; border-radius:999px; color:var(--accent); background:color-mix(in srgb,var(--accent) 10%,transparent); border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line)); font-weight:800; font-size:.82rem; }
-    .project-long-desc { color:var(--muted); margin:18px 0; }
-    .project-feature-list { display:grid; gap:10px; padding:0; margin:16px 0 22px; list-style:none; }
-    .project-feature-list li { color:var(--text); display:flex; gap:10px; align-items:flex-start; padding:11px 12px; border:1px solid var(--line); border-radius:14px; background:color-mix(in srgb,var(--panel) 84%,transparent); }
-    .project-feature-list li::before { content:'✓'; width:24px; height:24px; border-radius:8px; flex:0 0 auto; display:grid; place-items:center; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#0b0f16; font-weight:900; }
-    .project-modal-tools { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
-    .project-modal-tools span { padding:8px 11px; border-radius:999px; border:1px solid var(--line); color:var(--muted); font-size:.82rem; }
-    .project-modal-actions { display:grid; gap:10px; }
-    .project-modal-actions a { text-align:center; }
-    .project-modal-actions .ghost-btn { width:100%; }
-    .project-modal-actions .cta { width:100%; }
+        .modal-content {
+          width: min(900px, 100%);
+          max-height: 85vh;
+          border-radius: var(--radius-xl);
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        }
 
-    @media (max-width:980px) {
-      .skill-stack { grid-template-columns:repeat(2,1fr); }
-      .project-modal-layout { grid-template-columns:1fr; }
-      .gallery-pane { border-inline-end:0; border-bottom:1px solid var(--line); }
-      .gallery-stage { min-height:360px; }
-    }
-    @media (max-width:640px) {
-      .skill-stack { grid-template-columns:1fr; }
-      .project-modal-overlay { padding:8px; }
-      .project-modal { max-height:97vh; }
-      .gallery-pane,.project-info-pane { padding:14px; }
-      .gallery-stage { min-height:270px; border-radius:18px; }
-      .gallery-nav { width:42px; height:42px; }
-      .gallery-thumb { flex-basis:82px; height:55px; }
-    }
+        .modal-header {
+          padding: 20px 24px;
+          border-bottom: 1px solid var(--line);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
 
-  
-    /* Enhanced project image presentation */
-    .gallery-stage {
-      isolation: isolate;
-      padding: 18px;
-      background:
-        radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 30%),
-        radial-gradient(circle at 85% 85%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 32%),
-        linear-gradient(145deg, #070910, #111722);
-    }
-    .gallery-stage::before {
-      content: '';
-      position: absolute;
-      inset: 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.08);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .gallery-stage img {
-      position: relative;
-      z-index: 1;
-      border-radius: 16px;
-      filter: drop-shadow(0 18px 28px rgba(0,0,0,.35));
-    }
-    .gallery-nav, .gallery-counter { z-index: 5; }
-    .project-cover img { transition: transform .55s ease, filter .35s ease; }
-    .project-card:hover .project-cover img { transform: scale(1.035); filter: saturate(1.06) contrast(1.03); }
-    .hp-field { position:absolute !important; left:-10000px !important; width:1px !important; height:1px !important; overflow:hidden !important; opacity:0 !important; pointer-events:none !important; }
-    .form-help { color:var(--muted); font-size:.86rem; margin:2px 0 0; }
-    .form-status a { color:inherit; text-decoration:underline; font-weight:800; }
+        .modal-body {
+          padding: 24px;
+          overflow-y: auto;
+          background: #0d0f14;
+          color: #e0e6ed;
+          font-family: 'Courier New', Courier, monospace;
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
 
-  </style>
+        .modal-body pre {
+          margin: 0;
+          white-space: pre-wrap;
+          word-break: break-all;
+        }
+
+        .modal-footer {
+          padding: 20px 24px;
+          border-top: 1px solid var(--line);
+          display: flex;
+          justify-content: flex-end;
+          gap: 12px;
+        }
+
+
+        /* ═══════════ Project upgrade — keeps the original visual system ═══════════ */
+        .project-cover img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; transition:transform .55s ease, filter .4s ease; }
+        .project-cover::before, .project-cover::after { z-index:1; pointer-events:none; }
+        .project-cover::before { background:linear-gradient(180deg, transparent 42%, rgba(0,0,0,.68)); width:100%; height:100%; inset:0; border:0; border-radius:0; }
+        .project-cover::after { width:72%; height:60%; top:14%; bottom:auto; inset-inline-start:14%; border-color:rgba(255,255,255,.2); }
+        .project-card:hover .project-cover img { transform:scale(1.035); filter:saturate(1.08) contrast(1.03); }
+        .project-cover span { position:absolute !important; inset-inline:22px; bottom:20px; width:max-content; max-width:calc(100% - 44px); background:rgba(8,11,18,.72); backdrop-filter:blur(10px); }
+        .project-index { color:var(--accent); font-weight:800; font-size:.86rem; letter-spacing:.08em; }
+        .skill-stack { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:18px; }
+        .skill-stack > div { padding:14px; border-radius:18px; border:1px solid var(--line); background:color-mix(in srgb,var(--panel-strong) 82%,transparent); }
+        .skill-stack strong { display:block; color:var(--accent); margin-bottom:4px; }
+        .skill-stack span { color:var(--muted); font-size:.86rem; }
+
+        .project-modal-overlay { position:fixed; inset:0; z-index:3000; display:none; place-items:center; padding:18px; background:rgba(2,4,9,.9); backdrop-filter:blur(13px); }
+        .project-modal-overlay.active { display:grid; }
+        .project-modal { color:var(--text); width:min(1180px,100%); max-height:94vh; border-radius:var(--radius-xl); overflow:hidden; display:grid; grid-template-rows:auto 1fr; background:var(--panel-strong); border:1px solid var(--line); box-shadow:0 32px 100px rgba(0,0,0,.62); }
+        .project-modal-top { display:flex; justify-content:space-between; align-items:center; gap:14px; padding:16px 20px; border-bottom:1px solid var(--line); }
+        .project-modal-top small { color:var(--accent); font-weight:800; }
+        .project-modal-top h3 { margin:2px 0 0; font-size:1.25rem; color:var(--text); }
+        .project-modal-layout { min-height:0; overflow-y:auto; display:grid; grid-template-columns:minmax(0,1.55fr) minmax(300px,.85fr); }
+        .gallery-pane { min-width:0; padding:22px; border-inline-end:1px solid var(--line); background:color-mix(in srgb,var(--bg) 82%,#000); }
+        .gallery-stage { position:relative; min-height:470px; border-radius:24px; overflow:hidden; display:grid; place-items:center; background:#080a10; border:1px solid var(--line); }
+        .gallery-stage img { width:100%; height:100%; max-height:650px; object-fit:contain; display:block; opacity:1; transition:opacity .2s ease; }
+        .gallery-stage img.switching { opacity:.15; }
+        .gallery-nav { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,.22); background:rgba(5,8,14,.74); color:#fff; display:grid; place-items:center; font-size:1.55rem; cursor:pointer; z-index:4; backdrop-filter:blur(8px); }
+        .gallery-nav:hover { background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#0b0e15; border-color:transparent; }
+        .gallery-prev { inset-inline-start:16px; }
+        .gallery-next { inset-inline-end:16px; }
+        .gallery-counter { position:absolute; top:16px; inset-inline-end:16px; padding:7px 12px; border-radius:999px; background:rgba(4,7,12,.72); color:#fff; font-weight:700; font-size:.84rem; border:1px solid rgba(255,255,255,.14); }
+        .gallery-caption { color:var(--muted); text-align:center; min-height:28px; margin:12px 0 4px; }
+        .gallery-thumbs { display:flex; gap:9px; overflow-x:auto; padding:8px 2px 4px; scrollbar-width:thin; }
+        .gallery-thumb { flex:0 0 100px; height:65px; border-radius:12px; overflow:hidden; padding:0; border:2px solid transparent; background:var(--panel); cursor:pointer; opacity:.68; }
+        .gallery-thumb img { width:100%; height:100%; object-fit:cover; }
+        .gallery-thumb.active { opacity:1; border-color:var(--accent); transform:translateY(-2px); }
+        .project-info-pane { padding:25px; overflow-y:auto; }
+        .project-info-pane h2, .project-info-pane h3 { color:var(--text); }
+        .project-info-pane h2 { margin:0 0 8px; font-size:clamp(1.55rem,3vw,2.35rem); line-height:1.25; }
+        .project-type { display:inline-flex; padding:7px 12px; border-radius:999px; color:var(--accent); background:color-mix(in srgb,var(--accent) 10%,transparent); border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line)); font-weight:800; font-size:.82rem; }
+        .project-long-desc { color:var(--muted); margin:18px 0; }
+        .project-feature-list { display:grid; gap:10px; padding:0; margin:16px 0 22px; list-style:none; }
+        .project-feature-list li { color:var(--text); display:flex; gap:10px; align-items:flex-start; padding:11px 12px; border:1px solid var(--line); border-radius:14px; background:color-mix(in srgb,var(--panel) 84%,transparent); }
+        .project-feature-list li::before { content:'✓'; width:24px; height:24px; border-radius:8px; flex:0 0 auto; display:grid; place-items:center; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#0b0f16; font-weight:900; }
+        .project-modal-tools { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+        .project-modal-tools span { padding:8px 11px; border-radius:999px; border:1px solid var(--line); color:var(--muted); font-size:.82rem; }
+        .project-modal-actions { display:grid; gap:10px; }
+        .project-modal-actions a { text-align:center; }
+        .project-modal-actions .ghost-btn { width:100%; }
+        .project-modal-actions .cta { width:100%; }
+
+        @media (max-width:980px) {
+          .skill-stack { grid-template-columns:repeat(2,1fr); }
+          .project-modal-layout { grid-template-columns:1fr; }
+          .gallery-pane { border-inline-end:0; border-bottom:1px solid var(--line); }
+          .gallery-stage { min-height:360px; }
+        }
+        @media (max-width:640px) {
+          .skill-stack { grid-template-columns:1fr; }
+          .project-modal-overlay { padding:8px; }
+          .project-modal { max-height:97vh; }
+          .gallery-pane,.project-info-pane { padding:14px; }
+          .gallery-stage { min-height:270px; border-radius:18px; }
+          .gallery-nav { width:42px; height:42px; }
+          .gallery-thumb { flex-basis:82px; height:55px; }
+        }
+
+
+        /* Enhanced project image presentation */
+        .gallery-stage {
+          isolation: isolate;
+          padding: 18px;
+          background:
+            radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 30%),
+            radial-gradient(circle at 85% 85%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 32%),
+            linear-gradient(145deg, #070910, #111722);
+        }
+        .gallery-stage::before {
+          content: '';
+          position: absolute;
+          inset: 12px;
+          border-radius: 18px;
+          border: 1px solid rgba(255,255,255,.08);
+          pointer-events: none;
+          z-index: 0;
+        }
+        .gallery-stage img {
+          position: relative;
+          z-index: 1;
+          border-radius: 16px;
+          filter: drop-shadow(0 18px 28px rgba(0,0,0,.35));
+        }
+        .gallery-nav, .gallery-counter { z-index: 5; }
+        .project-cover img { transition: transform .55s ease, filter .35s ease; }
+        .project-card:hover .project-cover img { transform: scale(1.035); filter: saturate(1.06) contrast(1.03); }
+        .hp-field { position:absolute !important; left:-10000px !important; width:1px !important; height:1px !important; overflow:hidden !important; opacity:0 !important; pointer-events:none !important; }
+        .form-help { color:var(--muted); font-size:.86rem; margin:2px 0 0; }
+        .form-status a { color:inherit; text-decoration:underline; font-weight:800; }
+html {
+  direction: ltr !important;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body[dir="rtl"] {
+  direction: rtl;
+}
+
+body[dir="ltr"] {
+  direction: ltr;
+}
+    </style>
 </head>
 <body>
-  <header class="site-header">
+<header class="site-header">
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="العودة للأعلى">
-        <div class="brand-mark"><span class="text-as">YA</span><span class="text-code">&lt;/&gt;</span></div>
-        <div class="brand-text"><strong data-i18n="brand_name">يوسف ميسرة أبو هين</strong><span data-i18n="brand_role">مطور تطبيقات موبايل ومصمم UI/UX</span></div>
-      </a>
-      <nav class="nav-links" aria-label="التنقل الرئيسي">
-        <a href="#home" class="active" data-i18n="nav_home">الرئيسية</a>
-        <a href="#about" data-i18n="nav_about">نبذة عني</a>
-        <a href="#work" data-i18n="nav_work">الأعمال</a>
-        <a href="#contact" data-i18n="nav_contact">تواصل</a>
-      </nav>
-      <div class="controls">
-        <div class="lang-toggle glass" style="padding:6px;border-radius:999px;"><button type="button" class="active" data-lang="ar">AR</button><button type="button" data-lang="en">EN</button></div>
-        <div class="theme-switcher-panel" role="group" aria-label="مغير الثيمات">
-          <button class="theme-dot-btn active" data-theme="default" style="background:linear-gradient(135deg,#d4af37,#62d0ff);" title="Default"></button>
-          <button class="theme-dot-btn" data-theme="deep-ocean" style="background:linear-gradient(135deg,#00c9a7,#7c5cfc);" title="Deep Ocean"></button>
-          <button class="theme-dot-btn" data-theme="sunset-slate" style="background:linear-gradient(135deg,#ff7c35,#ffd166);" title="Sunset Slate"></button>
-          <button class="theme-dot-btn" data-theme="midnight-rose" style="background:linear-gradient(135deg,#e8577a,#c084fc);" title="Midnight Rose"></button>
+        <a class="brand" href="#top" aria-label="العودة للأعلى">
+            <div class="brand-mark"><span class="text-as">YA</span><span class="text-code">&lt;/&gt;</span></div>
+            <div class="brand-text"><strong data-i18n="brand_name">يوسف ميسرة أبو هين</strong><span
+                    data-i18n="brand_role">مطور تطبيقات موبايل ومصمم UI/UX</span></div>
+        </a>
+        <nav class="nav-links" aria-label="التنقل الرئيسي">
+            <a href="#home" class="active" data-i18n="nav_home">الرئيسية</a>
+            <a href="#about" data-i18n="nav_about">نبذة عني</a>
+            <a href="#work" data-i18n="nav_work">الأعمال</a>
+            <a href="#contact" data-i18n="nav_contact">تواصل</a>
+        </nav>
+        <div class="controls">
+            <div class="lang-toggle glass" style="padding:6px;border-radius:999px;">
+                <button type="button" class="active" data-lang="ar">AR</button>
+                <button type="button" data-lang="en">EN</button>
+            </div>
+            <div class="theme-switcher-panel" role="group" aria-label="مغير الثيمات">
+                <button class="theme-dot-btn active" data-theme="default"
+                        style="background:linear-gradient(135deg,#d4af37,#62d0ff);" title="Default"></button>
+                <button class="theme-dot-btn" data-theme="deep-ocean"
+                        style="background:linear-gradient(135deg,#00c9a7,#7c5cfc);" title="Deep Ocean"></button>
+                <button class="theme-dot-btn" data-theme="sunset-slate"
+                        style="background:linear-gradient(135deg,#ff7c35,#ffd166);" title="Sunset Slate"></button>
+                <button class="theme-dot-btn" data-theme="midnight-rose"
+                        style="background:linear-gradient(135deg,#e8577a,#c084fc);" title="Midnight Rose"></button>
+            </div>
+            <button class="icon-btn" id="themeToggle" type="button" aria-label="تبديل المظهر">☾ / ☀</button>
         </div>
-        <button class="icon-btn" id="themeToggle" type="button" aria-label="تبديل المظهر">☾ / ☀</button>
-      </div>
     </div>
-  </header>
+</header>
 
-  <main id="top">
+<main id="top">
     <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-card glass reveal">
-          <span class="eyebrow" data-i18n="eyebrow">برمجة تطبيقات وتجارب رقمية مدروسة</span>
-          <h1 data-i18n="hero_title">أحوّل الأفكار إلى تطبيقات وأنظمة وواجهات واضحة وقابلة للاستخدام.</h1>
-          <p class="lead" data-i18n="hero_desc">أنا يوسف ميسرة أبو هين، أدرس تصميم وتطوير تطبيقات الموبايل، وأعمل على مشاريع تجمع Android وJava وقواعد البيانات مع UX/UI. أركز على منطق برمجي منظم، بيانات مترابطة، وواجهات تخدم المستخدم بوضوح.</p>
-          <div class="hero-actions"><a class="cta" href="#work" data-i18n="hero_cta_primary">استعرض المشاريع</a><a class="ghost-btn" href="#contact" data-i18n="hero_cta_secondary">تواصل معي</a></div>
-          <div class="stat-row">
-            <div class="stat"><strong>04</strong><span data-i18n="stat_projects">مشاريع رئيسية موثقة</span></div>
-            <div class="stat"><strong>JAVA / ANDROID</strong><span data-i18n="stat_specialties">تطبيقات موبايل وأنظمة سطح مكتب</span></div>
-            <div class="stat"><strong>SQL / UX</strong><span data-i18n="stat_bilingual">قواعد بيانات وتجربة مستخدم</span></div>
-          </div>
+        <div class="container hero-grid">
+            <div class="hero-card glass reveal">
+                <span class="eyebrow" data-i18n="eyebrow">برمجة تطبيقات وتجارب رقمية مدروسة</span>
+                <h1 data-i18n="hero_title">أحوّل الأفكار إلى تطبيقات وأنظمة وواجهات واضحة وقابلة للاستخدام.</h1>
+                <p class="lead" data-i18n="hero_desc">أنا يوسف ميسرة أبو هين، أدرس تصميم وتطوير تطبيقات الموبايل، وأعمل
+                    على مشاريع تجمع Android وJava وقواعد البيانات مع UX/UI. أركز على منطق برمجي منظم، بيانات مترابطة،
+                    وواجهات تخدم المستخدم بوضوح.</p>
+                <div class="hero-actions"><a class="cta" href="#work" data-i18n="hero_cta_primary">استعرض المشاريع</a><a
+                        class="ghost-btn" href="#contact" data-i18n="hero_cta_secondary">تواصل معي</a></div>
+                <div class="stat-row">
+                    <div class="stat"><strong>04</strong><span data-i18n="stat_projects">مشاريع رئيسية موثقة</span>
+                    </div>
+                    <div class="stat"><strong>JAVA / ANDROID</strong><span data-i18n="stat_specialties">تطبيقات موبايل وأنظمة سطح مكتب</span>
+                    </div>
+                    <div class="stat"><strong>SQL / UX</strong><span data-i18n="stat_bilingual">قواعد بيانات وتجربة مستخدم</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-shell glass reveal">
+                <div class="avatar-card">
+                    <div class="avatar-frame"><img src="assets/profile.webp" alt="يوسف ميسرة أبو هين"
+                                                   class="profile-image">
+                        <div class="avatar-initials" id="initialsFallback"><span class="text-as">YA</span><span
+                                class="text-code">&lt;/&gt;</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="profile-shell glass reveal"><div class="avatar-card"><div class="avatar-frame"><img src="assets/profile.webp" alt="يوسف ميسرة أبو هين" class="profile-image"><div class="avatar-initials" id="initialsFallback"><span class="text-as">YA</span><span class="text-code">&lt;/&gt;</span></div></div></div></div>
-      </div>
     </section>
 
     <section id="about">
-      <div class="container">
-        <div class="section-head reveal"><div><h2 data-i18n="about_title">نبذة عني ومجالات عملي</h2><p data-i18n="about_desc">مساري يجمع بين بناء التطبيق، تنظيم منطق النظام، تصميم قاعدة البيانات، وصناعة تجربة استخدام متناسقة من الفكرة حتى النموذج النهائي.</p></div></div>
-        <div class="about-grid">
-          <article class="card glass reveal">
-            <span class="eyebrow" data-i18n="about_card1_eyebrow">من أنا</span>
-            <h3 data-i18n="about_card1_title">مطور تطبيقات ومصمم واجهات يتعامل مع المشروع كنظام كامل.</h3>
-            <p data-i18n="about_card1_text">أطوّر تطبيقات Android بلغة Java، أبني أنظمة JavaFX باستخدام مبادئ البرمجة كائنية التوجه، وأصمم قواعد بيانات SQL Server تشمل الجداول والعلاقات والقيود والاستعلامات. وفي UX/UI أعمل على البحث، تدفقات المستخدم، الـWireframes، والنماذج عالية الدقة على Figma.</p>
-            <div class="tags"><span class="chip">Android Studio</span><span class="chip">Java</span><span class="chip">JavaFX</span><span class="chip">SQLite</span><span class="chip">SQL Server</span><span class="chip">Figma</span><span class="chip">UX/UI</span><span class="chip">OOP</span></div>
-          </article>
-          <article class="card glass reveal">
-            <span class="eyebrow" data-i18n="about_card2_eyebrow">طريقة عملي</span>
-            <div class="timeline">
-              <div class="timeline-item"><strong data-i18n="timeline1_year">البرمجة</strong><div><h3 style="margin:0" data-i18n="timeline1_title">منطق واضح وقابل للتطوير</h3><p data-i18n="timeline1_text">تنظيم الكلاسات والبيانات والأحداث، تطبيق OOP، التحقق من المدخلات، معالجة الحالات، وربط الواجهات بالوظائف المطلوبة.</p></div></div>
-              <div class="timeline-item"><strong data-i18n="timeline2_year">البيانات</strong><div><h3 style="margin:0" data-i18n="timeline2_title">تصميم علاقات صحيحة واستعلامات عملية</h3><p data-i18n="timeline2_text">تحويل المتطلبات إلى ERD وRelational Schema ثم إنشاء الجداول والمفاتيح والقيود وتنفيذ عمليات الإدخال والتعديل والحذف والـJoins.</p></div></div>
-              <div class="timeline-item"><strong data-i18n="timeline3_year">التجربة</strong><div><h3 style="margin:0" data-i18n="timeline3_title">واجهة جميلة تخدم رحلة المستخدم</h3><p data-i18n="timeline3_text">تحديد احتياجات المستخدم، بناء تدفقات واضحة، تصميم شاشات متناسقة، وتحويل الفكرة إلى Prototype قابل للعرض والتقييم.</p></div></div>
+        <div class="container">
+            <div class="section-head reveal">
+                <div><h2 data-i18n="about_title">نبذة عني ومجالات عملي</h2>
+                    <p data-i18n="about_desc">مساري يجمع بين بناء التطبيق، تنظيم منطق النظام، تصميم قاعدة البيانات،
+                        وصناعة تجربة استخدام متناسقة من الفكرة حتى النموذج النهائي.</p></div>
             </div>
-          </article>
+            <div class="about-grid">
+                <article class="card glass reveal">
+                    <span class="eyebrow" data-i18n="about_card1_eyebrow">من أنا</span>
+                    <h3 data-i18n="about_card1_title">مطور تطبيقات ومصمم واجهات يتعامل مع المشروع كنظام كامل.</h3>
+                    <p data-i18n="about_card1_text">أطوّر تطبيقات Android بلغة Java، أبني أنظمة JavaFX باستخدام مبادئ
+                        البرمجة كائنية التوجه، وأصمم قواعد بيانات SQL Server تشمل الجداول والعلاقات والقيود
+                        والاستعلامات. وفي UX/UI أعمل على البحث، تدفقات المستخدم، الـWireframes، والنماذج عالية الدقة على
+                        Figma.</p>
+                    <div class="tags"><span class="chip">Android Studio</span><span class="chip">Java</span><span
+                            class="chip">JavaFX</span><span class="chip">SQLite</span><span
+                            class="chip">SQL Server</span><span class="chip">Figma</span><span class="chip">UX/UI</span><span
+                            class="chip">OOP</span></div>
+                </article>
+                <article class="card glass reveal">
+                    <span class="eyebrow" data-i18n="about_card2_eyebrow">طريقة عملي</span>
+                    <div class="timeline">
+                        <div class="timeline-item"><strong data-i18n="timeline1_year">البرمجة</strong>
+                            <div><h3 style="margin:0" data-i18n="timeline1_title">منطق واضح وقابل للتطوير</h3>
+                                <p data-i18n="timeline1_text">تنظيم الكلاسات والبيانات والأحداث، تطبيق OOP، التحقق من
+                                    المدخلات، معالجة الحالات، وربط الواجهات بالوظائف المطلوبة.</p></div>
+                        </div>
+                        <div class="timeline-item"><strong data-i18n="timeline2_year">البيانات</strong>
+                            <div><h3 style="margin:0" data-i18n="timeline2_title">تصميم علاقات صحيحة واستعلامات
+                                عملية</h3>
+                                <p data-i18n="timeline2_text">تحويل المتطلبات إلى ERD وRelational Schema ثم إنشاء
+                                    الجداول والمفاتيح والقيود وتنفيذ عمليات الإدخال والتعديل والحذف والـJoins.</p></div>
+                        </div>
+                        <div class="timeline-item"><strong data-i18n="timeline3_year">التجربة</strong>
+                            <div><h3 style="margin:0" data-i18n="timeline3_title">واجهة جميلة تخدم رحلة المستخدم</h3>
+                                <p data-i18n="timeline3_text">تحديد احتياجات المستخدم، بناء تدفقات واضحة، تصميم شاشات
+                                    متناسقة، وتحويل الفكرة إلى Prototype قابل للعرض والتقييم.</p></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="skill-stack reveal">
+                <div><strong>Android</strong><span data-i18n="skill_android">Activities، XML Layouts، Events، SQLite وواجهات عربية.</span>
+                </div>
+                <div><strong>Java</strong><span data-i18n="skill_java">OOP، Inheritance، Polymorphism، Exceptions، Collections وJavaFX.</span>
+                </div>
+                <div><strong>Database</strong><span data-i18n="skill_db">ERD، Schema، PK/FK، Constraints، CRUD، Joins وQueries.</span>
+                </div>
+                <div><strong>UX/UI</strong><span data-i18n="skill_ux">Research، User Flow، Wireframes، High Fidelity وPrototype.</span>
+                </div>
+            </div>
         </div>
-        <div class="skill-stack reveal">
-          <div><strong>Android</strong><span data-i18n="skill_android">Activities، XML Layouts، Events، SQLite وواجهات عربية.</span></div>
-          <div><strong>Java</strong><span data-i18n="skill_java">OOP، Inheritance، Polymorphism، Exceptions، Collections وJavaFX.</span></div>
-          <div><strong>Database</strong><span data-i18n="skill_db">ERD، Schema، PK/FK، Constraints، CRUD، Joins وQueries.</span></div>
-          <div><strong>UX/UI</strong><span data-i18n="skill_ux">Research، User Flow، Wireframes، High Fidelity وPrototype.</span></div>
-        </div>
-      </div>
     </section>
 
     <section id="work">
-      <div class="container">
-        <div class="section-head reveal"><div><h2 data-i18n="work_title">معرض الأعمال</h2><p data-i18n="work_desc">اضغط على عرض المشروع لفتح الصور كاملة، والتنقل بينها بالأسهم، وقراءة تفاصيل التنفيذ وتحميل الملفات المتاحة.</p></div></div>
-        <div class="toolbar reveal">
-          <div class="filters" aria-label="فلترة الأعمال"><button class="filter-btn active" type="button" data-filter="all" data-i18n="filter_all">الكل</button><button class="filter-btn" type="button" data-filter="design" data-i18n="filter_design">تصميم</button><button class="filter-btn" type="button" data-filter="ux" data-i18n="filter_ux">تجربة مستخدم</button><button class="filter-btn" type="button" data-filter="dev" data-i18n="filter_dev">برمجة</button></div>
-          <a class="ghost-btn" href="#contact" data-i18n="work_contact">للتعاون أو الاستفسار تواصل معي</a>
+        <div class="container">
+            <div class="section-head reveal">
+                <div><h2 data-i18n="work_title">معرض الأعمال</h2>
+                    <p data-i18n="work_desc">اضغط على عرض المشروع لفتح الصور كاملة، والتنقل بينها بالأسهم، وقراءة تفاصيل
+                        التنفيذ وتحميل الملفات المتاحة.</p></div>
+            </div>
+            <div class="toolbar reveal">
+                <div class="filters" aria-label="فلترة الأعمال">
+                    <button class="filter-btn active" type="button" data-filter="all" data-i18n="filter_all">الكل
+                    </button>
+                    <button class="filter-btn" type="button" data-filter="design" data-i18n="filter_design">تصميم
+                    </button>
+                    <button class="filter-btn" type="button" data-filter="ux" data-i18n="filter_ux">تجربة مستخدم
+                    </button>
+                    <button class="filter-btn" type="button" data-filter="dev" data-i18n="filter_dev">برمجة</button>
+                </div>
+                <a class="ghost-btn" href="#contact" data-i18n="work_contact">للتعاون أو الاستفسار تواصل معي</a>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <article class="project-card reveal" data-category="dev">
+                    <div class="project-cover"><img src="assets/projects/safe/cover.webp"
+                                                    alt="Safe Circle Android Application"><span data-i18n="safe_cover">Safe Circle — دائرة الأمان</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="meta"><span class="badge" data-i18n="safe_meta">Android Development</span><small
+                                class="project-index">01 / 04</small></div>
+                        <h3 class="project-title" data-i18n="safe_title">تطبيق Safe Circle لإدارة جهات الطوارئ</h3>
+                        <p class="project-desc" data-i18n="safe_desc">تطبيق Android بلغة Java لإنشاء حساب وإدارة جهات
+                            اتصال الطوارئ مع الأولوية والملاحظات والملف الشخصي وتخزين البيانات محليًا.</p>
+                        <div class="project-tools"><span>Android Studio</span><span>Java</span><span>SQLite</span><span>XML</span><span>CRUD</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="cta" onclick="openProject('safe')" data-i18n="view_project">عرض المشروع
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card reveal" data-category="dev">
+                    <div class="project-cover"><img src="assets/projects/hospital/cover.webp"
+                                                    alt="Smart Care JavaFX Hospital System"><span
+                            data-i18n="hospital_cover">Smart Care — نظام المستشفى</span></div>
+                    <div class="project-body">
+                        <div class="meta"><span class="badge" data-i18n="hospital_meta">JavaFX Development</span><small
+                                class="project-index">02 / 04</small></div>
+                        <h3 class="project-title" data-i18n="hospital_title">نظام Smart Care لإدارة المستشفى</h3>
+                        <p class="project-desc" data-i18n="hospital_desc">نظام JavaFX لتسجيل المرضى وحجز المواعيد
+                            والتحقق من تعارض الطبيب وتحديث حالة الموعد وحفظ البيانات في ملفات.</p>
+                        <div class="project-tools">
+                            <span>Java</span><span>JavaFX</span><span>OOP</span><span>Exceptions</span><span>File I/O</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="cta" onclick="openProject('hospital')" data-i18n="view_project">عرض المشروع
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card reveal" data-category="dev">
+                    <div class="project-cover"><img src="assets/projects/database/cover.webp"
+                                                    alt="Medical Clinic SQL Server Database"><span
+                            data-i18n="database_cover">Medical Clinic Database</span></div>
+                    <div class="project-body">
+                        <div class="meta"><span class="badge" data-i18n="database_meta">SQL Server Database</span><small
+                                class="project-index">03 / 04</small></div>
+                        <h3 class="project-title" data-i18n="database_title">قاعدة بيانات العيادة الطبية</h3>
+                        <p class="project-desc" data-i18n="database_desc">مشروع SQL Server يبدأ من ERD والـSchema وصولًا
+                            إلى الجداول والعلاقات والقيود وإدارة البيانات والاستعلامات والتقارير.</p>
+                        <div class="project-tools">
+                            <span>SQL Server</span><span>ERD</span><span>PK / FK</span><span>CRUD</span><span>Joins</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="cta" onclick="openProject('database')" data-i18n="view_project">عرض المشروع
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card reveal" data-category="ux design">
+                    <div class="project-cover"><img src="assets/projects/wasel/cover.webp" alt="WASEL UX UI Case Study"><span
+                            data-i18n="wasel_cover">WASEL — واصل UX/UI</span></div>
+                    <div class="project-body">
+                        <div class="meta"><span class="badge" data-i18n="wasel_meta">UX/UI Case Study</span><small
+                                class="project-index">04 / 04</small></div>
+                        <h3 class="project-title" data-i18n="wasel_title">تجربة مستخدم وواجهات تطبيق واصل</h3>
+                        <p class="project-desc" data-i18n="wasel_desc">دراسة حالة لتطبيق توصيل طعام ذكي تشمل البحث
+                            والتحليل وتدفقات الاستخدام وواجهات عالية الدقة ومزايا الذكاء الاصطناعي والطلب الجماعي.</p>
+                        <div class="project-tools">
+                            <span>Figma</span><span>UX Research</span><span>Wireframes</span><span>Prototype</span><span>UI Design</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="cta" onclick="openProject('wasel')" data-i18n="view_project">عرض المشروع
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
-        <div class="projects-grid" id="projectsGrid">
-          <article class="project-card reveal" data-category="dev"><div class="project-cover"><img src="assets/projects/safe/cover.webp" alt="Safe Circle Android Application"><span data-i18n="safe_cover">Safe Circle — دائرة الأمان</span></div><div class="project-body"><div class="meta"><span class="badge" data-i18n="safe_meta">Android Development</span><small class="project-index">01 / 04</small></div><h3 class="project-title" data-i18n="safe_title">تطبيق Safe Circle لإدارة جهات الطوارئ</h3><p class="project-desc" data-i18n="safe_desc">تطبيق Android بلغة Java لإنشاء حساب وإدارة جهات اتصال الطوارئ مع الأولوية والملاحظات والملف الشخصي وتخزين البيانات محليًا.</p><div class="project-tools"><span>Android Studio</span><span>Java</span><span>SQLite</span><span>XML</span><span>CRUD</span></div><div class="project-links"><button class="cta" onclick="openProject('safe')" data-i18n="view_project">عرض المشروع</button></div></div></article>
-          <article class="project-card reveal" data-category="dev"><div class="project-cover"><img src="assets/projects/hospital/cover.webp" alt="Smart Care JavaFX Hospital System"><span data-i18n="hospital_cover">Smart Care — نظام المستشفى</span></div><div class="project-body"><div class="meta"><span class="badge" data-i18n="hospital_meta">JavaFX Development</span><small class="project-index">02 / 04</small></div><h3 class="project-title" data-i18n="hospital_title">نظام Smart Care لإدارة المستشفى</h3><p class="project-desc" data-i18n="hospital_desc">نظام JavaFX لتسجيل المرضى وحجز المواعيد والتحقق من تعارض الطبيب وتحديث حالة الموعد وحفظ البيانات في ملفات.</p><div class="project-tools"><span>Java</span><span>JavaFX</span><span>OOP</span><span>Exceptions</span><span>File I/O</span></div><div class="project-links"><button class="cta" onclick="openProject('hospital')" data-i18n="view_project">عرض المشروع</button></div></div></article>
-          <article class="project-card reveal" data-category="dev"><div class="project-cover"><img src="assets/projects/database/cover.webp" alt="Medical Clinic SQL Server Database"><span data-i18n="database_cover">Medical Clinic Database</span></div><div class="project-body"><div class="meta"><span class="badge" data-i18n="database_meta">SQL Server Database</span><small class="project-index">03 / 04</small></div><h3 class="project-title" data-i18n="database_title">قاعدة بيانات العيادة الطبية</h3><p class="project-desc" data-i18n="database_desc">مشروع SQL Server يبدأ من ERD والـSchema وصولًا إلى الجداول والعلاقات والقيود وإدارة البيانات والاستعلامات والتقارير.</p><div class="project-tools"><span>SQL Server</span><span>ERD</span><span>PK / FK</span><span>CRUD</span><span>Joins</span></div><div class="project-links"><button class="cta" onclick="openProject('database')" data-i18n="view_project">عرض المشروع</button></div></div></article>
-          <article class="project-card reveal" data-category="ux design"><div class="project-cover"><img src="assets/projects/wasel/cover.webp" alt="WASEL UX UI Case Study"><span data-i18n="wasel_cover">WASEL — واصل UX/UI</span></div><div class="project-body"><div class="meta"><span class="badge" data-i18n="wasel_meta">UX/UI Case Study</span><small class="project-index">04 / 04</small></div><h3 class="project-title" data-i18n="wasel_title">تجربة مستخدم وواجهات تطبيق واصل</h3><p class="project-desc" data-i18n="wasel_desc">دراسة حالة لتطبيق توصيل طعام ذكي تشمل البحث والتحليل وتدفقات الاستخدام وواجهات عالية الدقة ومزايا الذكاء الاصطناعي والطلب الجماعي.</p><div class="project-tools"><span>Figma</span><span>UX Research</span><span>Wireframes</span><span>Prototype</span><span>UI Design</span></div><div class="project-links"><button class="cta" onclick="openProject('wasel')" data-i18n="view_project">عرض المشروع</button></div></div></article>
-        </div>
-      </div>
     </section>
 
     <section id="contact">
-      <div class="container contact-grid">
-        <article class="card glass reveal">
-          <span class="eyebrow" data-i18n="contact_eyebrow">تواصل معي</span><h2 data-i18n="contact_title">لديك فرصة تدريب أو مشروع برمجي أو واجهة تطبيق؟ يسعدني التواصل.</h2><p data-i18n="contact_desc" style="color:var(--muted);margin-top:10px">اكتب رسالتك وأرسلها مباشرة من الموقع، أو تواصل معي بسرعة عبر واتساب.</p>
-          <form id="contactForm" class="contact-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="cf_name" data-i18n="form_name_label">الاسم</label>
-                <input type="text" id="cf_name" name="name" required maxlength="80" autocomplete="name" data-i18n-placeholder="form_name_ph" placeholder="اكتب اسمك">
-              </div>
-              <div class="form-group">
-                <label for="cf_email" data-i18n="form_email_label">إيميلك</label>
-                <input type="email" id="cf_email" name="email" required maxlength="140" autocomplete="email" data-i18n-placeholder="form_email_ph" placeholder="example@email.com">
-              </div>
+        <div class="container contact-grid">
+            <article class="card glass reveal">
+                <span class="eyebrow" data-i18n="contact_eyebrow">تواصل معي</span>
+                <h2 data-i18n="contact_title">لديك فرصة تدريب أو مشروع برمجي أو واجهة تطبيق؟ يسعدني التواصل.</h2>
+                <p data-i18n="contact_desc" style="color:var(--muted);margin-top:10px">اكتب رسالتك وأرسلها مباشرة من
+                    الموقع، أو تواصل معي بسرعة عبر واتساب.</p>
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cf_name" data-i18n="form_name_label">الاسم</label>
+                            <input type="text" id="cf_name" name="name" required maxlength="80" autocomplete="name"
+                                   data-i18n-placeholder="form_name_ph" placeholder="اكتب اسمك">
+                        </div>
+                        <div class="form-group">
+                            <label for="cf_email" data-i18n="form_email_label">إيميلك</label>
+                            <input type="email" id="cf_email" name="email" required maxlength="140" autocomplete="email"
+                                   data-i18n-placeholder="form_email_ph" placeholder="example@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf_subject" data-i18n="form_subject_label">موضوع الرسالة</label>
+                        <input type="text" id="cf_subject" name="subject" required maxlength="120"
+                               data-i18n-placeholder="form_subject_ph" placeholder="مثلاً: فرصة تدريب Android">
+                    </div>
+                    <div class="form-group">
+                        <label for="cf_message" data-i18n="form_message_label">محتوى الرسالة</label>
+                        <textarea id="cf_message" name="message" required rows="6" maxlength="2500"
+                                  data-i18n-placeholder="form_message_ph"
+                                  placeholder="اكتب تفاصيل الرسالة..."></textarea>
+                    </div>
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="cf_company">Company</label>
+                        <input type="text" id="cf_company" name="_honey" tabindex="-1" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="_template" value="table">
+                    <button type="submit" class="submit-btn" id="contactSubmit">
+                        <span class="submit-label" data-i18n="form_submit">إرسال الرسالة مباشرة</span>
+                        <span aria-hidden="true">✉</span>
+                    </button>
+                    <p class="form-help" data-i18n="form_help">ستصل الرسالة مباشرة إلى بريدي دون فتح تطبيق البريد.</p>
+                    <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+                </form>
+            </article>
+            <div style="display:flex;flex-direction:column;gap:22px">
+                <article class="card glass reveal"><span class="eyebrow" data-i18n="contact_card2_eyebrow">بيانات التواصل</span>
+                    <h3 data-i18n="contact_card2_title">متاح للتدريب والمشاريع وفرص التطوير المبدئية.</h3>
+                    <p data-i18n="contact_card2_desc">يمكن التواصل معي بشأن Android وJava وقواعد البيانات وتصميم واجهات
+                        وتجربة المستخدم.</p>
+                    <div class="contact-list" style="margin-top:18px">
+                        <div class="contact-card" data-copy="yosefyaboheen@gmail.com"><span class="meta"><strong
+                                data-i18n="contact_email_label">البريد الإلكتروني</strong><span class="contact-value">yosefyaboheen@gmail.com</span></span>
+                            <div class="action-group">
+                                <button type="button" class="icon-action"
+                                        onclick="window.location.href='mailto:yosefyaboheen@gmail.com'" title="Email">✉
+                                </button>
+                                <button type="button" class="icon-action copy-action" title="Copy">⧉</button>
+                            </div>
+                        </div>
+                        <div class="contact-card" data-copy="+972593243373"><span class="meta"><strong
+                                data-i18n="contact_phone_label">رقم الجوال والواتساب</strong><span
+                                class="contact-value">+972 59-324-3373</span></span>
+                            <div class="action-group">
+                                <button type="button" class="icon-action whatsapp"
+                                        onclick="window.open('https://wa.me/972593243373','_blank','noopener,noreferrer')"
+                                        title="WhatsApp">◉
+                                </button>
+                                <button type="button" class="icon-action copy-action" title="Copy">⧉</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card glass reveal" style="text-align:center"><h3 style="margin:0 0 8px"
+                                                                                 data-i18n="contact_card3_title">شاهد
+                    تفاصيل المشاريع أولًا</h3>
+                    <p style="color:var(--muted);margin:0 0 18px" data-i18n="contact_card3_desc">كل بطاقة مشروع تحتوي
+                        معرض صور كامل وملفات قابلة للتحميل.</p>
+                    <div class="hero-actions" style="justify-content:center"><a class="cta" href="#work"
+                                                                                data-i18n="contact_cta_primary_work">استعرض
+                        الأعمال</a><a class="ghost-btn" href="#home" data-i18n="contact_cta_secondary">العودة للأعلى</a>
+                    </div>
+                </article>
             </div>
-            <div class="form-group">
-              <label for="cf_subject" data-i18n="form_subject_label">موضوع الرسالة</label>
-              <input type="text" id="cf_subject" name="subject" required maxlength="120" data-i18n-placeholder="form_subject_ph" placeholder="مثلاً: فرصة تدريب Android">
-            </div>
-            <div class="form-group">
-              <label for="cf_message" data-i18n="form_message_label">محتوى الرسالة</label>
-              <textarea id="cf_message" name="message" required rows="6" maxlength="2500" data-i18n-placeholder="form_message_ph" placeholder="اكتب تفاصيل الرسالة..."></textarea>
-            </div>
-            <div class="hp-field" aria-hidden="true">
-              <label for="cf_company">Company</label>
-              <input type="text" id="cf_company" name="_honey" tabindex="-1" autocomplete="off">
-            </div>
-            <input type="hidden" name="_template" value="table">
-            <button type="submit" class="submit-btn" id="contactSubmit">
-              <span class="submit-label" data-i18n="form_submit">إرسال الرسالة مباشرة</span>
-              <span aria-hidden="true">✉</span>
-            </button>
-            <p class="form-help" data-i18n="form_help">ستصل الرسالة مباشرة إلى بريدي دون فتح تطبيق البريد.</p>
-            <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
-          </form>
-        </article>
-        <div style="display:flex;flex-direction:column;gap:22px">
-          <article class="card glass reveal"><span class="eyebrow" data-i18n="contact_card2_eyebrow">بيانات التواصل</span><h3 data-i18n="contact_card2_title">متاح للتدريب والمشاريع وفرص التطوير المبدئية.</h3><p data-i18n="contact_card2_desc">يمكن التواصل معي بشأن Android وJava وقواعد البيانات وتصميم واجهات وتجربة المستخدم.</p><div class="contact-list" style="margin-top:18px">
-            <div class="contact-card" data-copy="yosefyaboheen@gmail.com"><span class="meta"><strong data-i18n="contact_email_label">البريد الإلكتروني</strong><span class="contact-value">yosefyaboheen@gmail.com</span></span><div class="action-group"><button type="button" class="icon-action" onclick="window.location.href='mailto:yosefyaboheen@gmail.com'" title="Email">✉</button><button type="button" class="icon-action copy-action" title="Copy">⧉</button></div></div>
-            <div class="contact-card" data-copy="+972593243373"><span class="meta"><strong data-i18n="contact_phone_label">رقم الجوال والواتساب</strong><span class="contact-value">+972 59-324-3373</span></span><div class="action-group"><button type="button" class="icon-action whatsapp" onclick="window.open('https://wa.me/972593243373','_blank','noopener,noreferrer')" title="WhatsApp">◉</button><button type="button" class="icon-action copy-action" title="Copy">⧉</button></div></div>
-          </div></article>
-          <article class="card glass reveal" style="text-align:center"><h3 style="margin:0 0 8px" data-i18n="contact_card3_title">شاهد تفاصيل المشاريع أولًا</h3><p style="color:var(--muted);margin:0 0 18px" data-i18n="contact_card3_desc">كل بطاقة مشروع تحتوي معرض صور كامل وملفات قابلة للتحميل.</p><div class="hero-actions" style="justify-content:center"><a class="cta" href="#work" data-i18n="contact_cta_primary_work">استعرض الأعمال</a><a class="ghost-btn" href="#home" data-i18n="contact_cta_secondary">العودة للأعلى</a></div></article>
         </div>
-      </div>
     </section>
-  </main>
-  <footer class="footer"><div class="container footer-inner"><div data-i18n="footer_copy">© 2026 يوسف ميسرة أبو هين — معرض أعمال برمجي</div><div data-i18n="footer_note">Android • Java • SQL Server • UX/UI</div></div></footer>
-
-  <div id="projectModal" class="project-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
-    <div class="project-modal">
-      <div class="project-modal-top"><div><small id="projectModalKicker"></small><h3 id="projectModalHeader"></h3></div><button class="icon-btn" type="button" onclick="closeProject()" data-i18n-aria="close" aria-label="إغلاق">×</button></div>
-      <div class="project-modal-layout">
-        <div class="gallery-pane"><div class="gallery-stage" id="galleryStage"><img id="galleryImage" src="" alt=""><button class="gallery-nav gallery-prev" type="button" onclick="moveGallery(-1)" aria-label="Previous">‹</button><button class="gallery-nav gallery-next" type="button" onclick="moveGallery(1)" aria-label="Next">›</button><span class="gallery-counter" id="galleryCounter"></span></div><p class="gallery-caption" id="galleryCaption"></p><div class="gallery-thumbs" id="galleryThumbs"></div></div>
-        <aside class="project-info-pane"><span class="project-type" id="projectType"></span><h2 id="projectModalTitle"></h2><p class="project-long-desc" id="projectLongDesc"></p><h3 data-i18n="project_features">أبرز ما تم تنفيذه</h3><ul class="project-feature-list" id="projectFeatures"></ul><div class="project-modal-tools" id="projectTools"></div><div class="project-modal-actions" id="projectActions"></div></aside>
-      </div>
+</main>
+<footer class="footer">
+    <div class="container footer-inner">
+        <div data-i18n="footer_copy">© 2026 يوسف ميسرة أبو هين — معرض أعمال برمجي</div>
+        <div data-i18n="footer_note">Android • Java • SQL Server • UX/UI</div>
     </div>
-  </div>
+</footer>
+
+<div id="projectModal" class="project-modal-overlay" role="dialog" aria-modal="true"
+     aria-labelledby="projectModalTitle">
+    <div class="project-modal">
+        <div class="project-modal-top">
+            <div><small id="projectModalKicker"></small>
+                <h3 id="projectModalHeader"></h3></div>
+            <button class="icon-btn" type="button" onclick="closeProject()" data-i18n-aria="close" aria-label="إغلاق">
+                ×
+            </button>
+        </div>
+        <div class="project-modal-layout">
+            <div class="gallery-pane">
+                <div class="gallery-stage" id="galleryStage"><img id="galleryImage" src="" alt="">
+                    <button class="gallery-nav gallery-prev" type="button" onclick="moveGallery(-1)"
+                            aria-label="Previous">‹
+                    </button>
+                    <button class="gallery-nav gallery-next" type="button" onclick="moveGallery(1)" aria-label="Next">
+                        ›
+                    </button>
+                    <span class="gallery-counter" id="galleryCounter"></span></div>
+                <p class="gallery-caption" id="galleryCaption"></p>
+                <div class="gallery-thumbs" id="galleryThumbs"></div>
+            </div>
+            <aside class="project-info-pane"><span class="project-type" id="projectType"></span>
+                <h2 id="projectModalTitle"></h2>
+                <p class="project-long-desc" id="projectLongDesc"></p>
+                <h3 data-i18n="project_features">أبرز ما تم تنفيذه</h3>
+                <ul class="project-feature-list" id="projectFeatures"></ul>
+                <div class="project-modal-tools" id="projectTools"></div>
+                <div class="project-modal-actions" id="projectActions"></div>
+            </aside>
+        </div>
+    </div>
+</div>
 
 <script>
-(function(){
-var translations = {
- ar: {
-  brand_name:'يوسف ميسرة أبو هين', brand_role:'مطور تطبيقات موبايل ومصمم UI/UX', nav_home:'الرئيسية', nav_about:'نبذة عني', nav_work:'الأعمال', nav_contact:'تواصل',
-  eyebrow:'برمجة تطبيقات وتجارب رقمية مدروسة', hero_title:'أحوّل الأفكار إلى تطبيقات وأنظمة وواجهات واضحة وقابلة للاستخدام.', hero_desc:'أنا يوسف ميسرة أبو هين، أدرس تصميم وتطوير تطبيقات الموبايل، وأعمل على مشاريع تجمع Android وJava وقواعد البيانات مع UX/UI. أركز على منطق برمجي منظم، بيانات مترابطة، وواجهات تخدم المستخدم بوضوح.', hero_cta_primary:'استعرض المشاريع', hero_cta_secondary:'تواصل معي', stat_projects:'مشاريع رئيسية موثقة', stat_specialties:'تطبيقات موبايل وأنظمة سطح مكتب', stat_bilingual:'قواعد بيانات وتجربة مستخدم',
-  about_title:'نبذة عني ومجالات عملي', about_desc:'مساري يجمع بين بناء التطبيق، تنظيم منطق النظام، تصميم قاعدة البيانات، وصناعة تجربة استخدام متناسقة من الفكرة حتى النموذج النهائي.', about_card1_eyebrow:'من أنا', about_card1_title:'مطور تطبيقات ومصمم واجهات يتعامل مع المشروع كنظام كامل.', about_card1_text:'أطوّر تطبيقات Android بلغة Java، أبني أنظمة JavaFX باستخدام مبادئ البرمجة كائنية التوجه، وأصمم قواعد بيانات SQL Server تشمل الجداول والعلاقات والقيود والاستعلامات. وفي UX/UI أعمل على البحث، تدفقات المستخدم، الـWireframes، والنماذج عالية الدقة على Figma.', about_card2_eyebrow:'طريقة عملي',
-  timeline1_year:'البرمجة', timeline1_title:'منطق واضح وقابل للتطوير', timeline1_text:'تنظيم الكلاسات والبيانات والأحداث، تطبيق OOP، التحقق من المدخلات، معالجة الحالات، وربط الواجهات بالوظائف المطلوبة.', timeline2_year:'البيانات', timeline2_title:'تصميم علاقات صحيحة واستعلامات عملية', timeline2_text:'تحويل المتطلبات إلى ERD وRelational Schema ثم إنشاء الجداول والمفاتيح والقيود وتنفيذ عمليات الإدخال والتعديل والحذف والـJoins.', timeline3_year:'التجربة', timeline3_title:'واجهة جميلة تخدم رحلة المستخدم', timeline3_text:'تحديد احتياجات المستخدم، بناء تدفقات واضحة، تصميم شاشات متناسقة، وتحويل الفكرة إلى Prototype قابل للعرض والتقييم.',
-  skill_android:'Activities، XML Layouts، Events، SQLite وواجهات عربية.', skill_java:'OOP، Inheritance، Polymorphism، Exceptions، Collections وJavaFX.', skill_db:'ERD، Schema، PK/FK، Constraints، CRUD، Joins وQueries.', skill_ux:'Research، User Flow، Wireframes، High Fidelity وPrototype.',
-  work_title:'معرض الأعمال', work_desc:'اضغط على عرض المشروع لفتح الصور كاملة، والتنقل بينها بالأسهم، وقراءة تفاصيل التنفيذ وتحميل الملفات المتاحة.', filter_all:'الكل', filter_design:'تصميم', filter_ux:'تجربة مستخدم', filter_dev:'برمجة', work_contact:'للتعاون أو الاستفسار تواصل معي', view_project:'عرض المشروع',
-  safe_cover:'Safe Circle — دائرة الأمان', safe_meta:'تطوير Android', safe_title:'تطبيق Safe Circle لإدارة جهات الطوارئ', safe_desc:'تطبيق Android بلغة Java لإنشاء حساب وإدارة جهات اتصال الطوارئ مع الأولوية والملاحظات والملف الشخصي وتخزين البيانات محليًا.',
-  hospital_cover:'Smart Care — نظام المستشفى', hospital_meta:'تطوير JavaFX', hospital_title:'نظام Smart Care لإدارة المستشفى', hospital_desc:'نظام JavaFX لتسجيل المرضى وحجز المواعيد والتحقق من تعارض الطبيب وتحديث حالة الموعد وحفظ البيانات في ملفات.',
-  database_cover:'قاعدة بيانات العيادة الطبية', database_meta:'قاعدة بيانات SQL Server', database_title:'قاعدة بيانات العيادة الطبية', database_desc:'مشروع SQL Server يبدأ من ERD والـSchema وصولًا إلى الجداول والعلاقات والقيود وإدارة البيانات والاستعلامات والتقارير.',
-  wasel_cover:'WASEL — واصل UX/UI', wasel_meta:'دراسة حالة UX/UI', wasel_title:'تجربة مستخدم وواجهات تطبيق واصل', wasel_desc:'دراسة حالة لتطبيق توصيل طعام ذكي تشمل البحث والتحليل وتدفقات الاستخدام وواجهات عالية الدقة ومزايا الذكاء الاصطناعي والطلب الجماعي.',
-  contact_eyebrow:'تواصل معي', contact_title:'لديك فرصة تدريب أو مشروع برمجي أو واجهة تطبيق؟ يسعدني التواصل.', contact_desc:'اكتب رسالتك وأرسلها مباشرة من الموقع، أو تواصل معي بسرعة عبر واتساب.', form_name_label:'الاسم', form_name_ph:'اكتب اسمك', form_email_label:'إيميلك', form_email_ph:'example@email.com', form_subject_label:'موضوع الرسالة', form_subject_ph:'مثلاً: فرصة تدريب Android', form_message_label:'محتوى الرسالة', form_message_ph:'اكتب تفاصيل الرسالة...', form_submit:'إرسال الرسالة مباشرة', form_help:'ستصل الرسالة مباشرة إلى بريدي دون فتح تطبيق البريد.', contact_card2_eyebrow:'بيانات التواصل', contact_card2_title:'متاح للتدريب والمشاريع وفرص التطوير المبدئية.', contact_card2_desc:'يمكن التواصل معي بشأن Android وJava وقواعد البيانات وتصميم واجهات وتجربة المستخدم.', contact_email_label:'البريد الإلكتروني', contact_phone_label:'رقم الجوال والواتساب', contact_card3_title:'شاهد تفاصيل المشاريع أولًا', contact_card3_desc:'كل بطاقة مشروع تحتوي معرض صور كامل وملفات قابلة للتحميل.', contact_cta_primary_work:'استعرض الأعمال', contact_cta_secondary:'العودة للأعلى', footer_copy:'© 2026 يوسف ميسرة أبو هين — معرض أعمال برمجي', footer_note:'Android • Java • SQL Server • UX/UI', project_features:'أبرز ما تم تنفيذه', close:'إغلاق', gallery_image:'صورة', download:'تحميل'
- },
- en: {
-  brand_name:'Yosef Maysara Abu Hein', brand_role:'Mobile Application Developer & UI/UX Designer', nav_home:'Home', nav_about:'About', nav_work:'Work', nav_contact:'Contact',
-  eyebrow:'Thoughtful applications and digital experiences', hero_title:'I turn ideas into usable applications, systems, and clear interfaces.', hero_desc:'I am Yosef Maysara Abu Hein, a Mobile Applications Design and Development student. My projects connect Android, Java, databases, and UX/UI with structured logic, well-related data, and user-focused interfaces.', hero_cta_primary:'View Projects', hero_cta_secondary:'Contact Me', stat_projects:'Documented core projects', stat_specialties:'Mobile apps and desktop systems', stat_bilingual:'Databases and user experience',
-  about_title:'About Me and My Fields', about_desc:'My work connects application development, system logic, database design, and user experience from the initial idea to a presentable final solution.', about_card1_eyebrow:'Who I Am', about_card1_title:'An application developer and interface designer who treats each project as a complete system.', about_card1_text:'I develop Android applications with Java, build JavaFX systems using object-oriented programming, and design SQL Server databases with tables, relationships, constraints, and practical queries. In UX/UI, I work on research, user flows, wireframes, high-fidelity interfaces, and Figma prototypes.', about_card2_eyebrow:'How I Work',
-  timeline1_year:'Development', timeline1_title:'Clear and extendable logic', timeline1_text:'Organizing classes, data, and events; applying OOP; validating inputs; handling edge cases; and connecting interfaces to required functions.', timeline2_year:'Data', timeline2_title:'Correct relationships and practical queries', timeline2_text:'Translating requirements into an ERD and relational schema, then building tables, keys, constraints, CRUD operations, joins, and reports.', timeline3_year:'Experience', timeline3_title:'A polished interface that supports the user journey', timeline3_text:'Understanding user needs, planning clear flows, designing consistent screens, and turning the concept into a testable prototype.',
-  skill_android:'Activities, XML layouts, event handling, SQLite, and Arabic interfaces.', skill_java:'OOP, inheritance, polymorphism, exceptions, collections, and JavaFX.', skill_db:'ERD, schema, PK/FK, constraints, CRUD, joins, and queries.', skill_ux:'Research, user flows, wireframes, high fidelity, and prototyping.',
-  work_title:'Selected Work', work_desc:'Open any project to browse its full image gallery with working arrows, read implementation details, and download the available files.', filter_all:'All', filter_design:'Design', filter_ux:'User Experience', filter_dev:'Development', work_contact:'Contact me for collaboration or questions', view_project:'View Project',
-  safe_cover:'Safe Circle — Emergency Contacts', safe_meta:'Android Development', safe_title:'Safe Circle Emergency Contacts App', safe_desc:'A Java Android app for account creation and emergency-contact management, including priorities, notes, profiles, and local data storage.',
-  hospital_cover:'Smart Care — Hospital System', hospital_meta:'JavaFX Development', hospital_title:'Smart Care Hospital Management System', hospital_desc:'A JavaFX system for registering patients, booking appointments, detecting doctor conflicts, updating status, and saving data to files.',
-  database_cover:'Medical Clinic Database', database_meta:'SQL Server Database', database_title:'Medical Clinic Database', database_desc:'A SQL Server project covering ERD and schema design, table creation, relationships, constraints, data management, queries, and reports.',
-  wasel_cover:'WASEL — UX/UI', wasel_meta:'UX/UI Case Study', wasel_title:'WASEL Food Delivery UX/UI', wasel_desc:'A smart food-delivery case study covering research, flows, high-fidelity interfaces, AI-assisted ordering, and group-order experiences.',
-  contact_eyebrow:'Contact Me', contact_title:'Have an internship, development project, or app-interface opportunity? Let’s talk.', contact_desc:'Write and send your message directly from the website, or contact me quickly on WhatsApp.', form_name_label:'Your Name', form_name_ph:'Enter your name', form_email_label:'Your Email', form_email_ph:'example@email.com', form_subject_label:'Subject', form_subject_ph:'e.g. Android internship opportunity', form_message_label:'Message', form_message_ph:'Write the message details...', form_submit:'Send Message Directly', form_help:'Your message will be delivered directly to my inbox without opening an email application.', contact_card2_eyebrow:'Contact Details', contact_card2_title:'Available for internships, projects, and junior development opportunities.', contact_card2_desc:'You can contact me about Android, Java, databases, UI design, and user experience.', contact_email_label:'Email', contact_phone_label:'Mobile & WhatsApp', contact_card3_title:'Explore the projects first', contact_card3_desc:'Every project card includes a complete gallery and downloadable files.', contact_cta_primary_work:'View Projects', contact_cta_secondary:'Back to Top', footer_copy:'© 2026 Yosef Maysara Abu Hein — Development Portfolio', footer_note:'Android • Java • SQL Server • UX/UI', project_features:'Key Implementation Highlights', close:'Close', gallery_image:'Image', download:'Download'
- }
-};
+    (function(){
+    var translations = {
+     ar: {
+      brand_name:'يوسف ميسرة أبو هين', brand_role:'مطور تطبيقات موبايل ومصمم UI/UX', nav_home:'الرئيسية', nav_about:'نبذة عني', nav_work:'الأعمال', nav_contact:'تواصل',
+      eyebrow:'برمجة تطبيقات وتجارب رقمية مدروسة', hero_title:'أحوّل الأفكار إلى تطبيقات وأنظمة وواجهات واضحة وقابلة للاستخدام.', hero_desc:'أنا يوسف ميسرة أبو هين، أدرس تصميم وتطوير تطبيقات الموبايل، وأعمل على مشاريع تجمع Android وJava وقواعد البيانات مع UX/UI. أركز على منطق برمجي منظم، بيانات مترابطة، وواجهات تخدم المستخدم بوضوح.', hero_cta_primary:'استعرض المشاريع', hero_cta_secondary:'تواصل معي', stat_projects:'مشاريع رئيسية موثقة', stat_specialties:'تطبيقات موبايل وأنظمة سطح مكتب', stat_bilingual:'قواعد بيانات وتجربة مستخدم',
+      about_title:'نبذة عني ومجالات عملي', about_desc:'مساري يجمع بين بناء التطبيق، تنظيم منطق النظام، تصميم قاعدة البيانات، وصناعة تجربة استخدام متناسقة من الفكرة حتى النموذج النهائي.', about_card1_eyebrow:'من أنا', about_card1_title:'مطور تطبيقات ومصمم واجهات يتعامل مع المشروع كنظام كامل.', about_card1_text:'أطوّر تطبيقات Android بلغة Java، أبني أنظمة JavaFX باستخدام مبادئ البرمجة كائنية التوجه، وأصمم قواعد بيانات SQL Server تشمل الجداول والعلاقات والقيود والاستعلامات. وفي UX/UI أعمل على البحث، تدفقات المستخدم، الـWireframes، والنماذج عالية الدقة على Figma.', about_card2_eyebrow:'طريقة عملي',
+      timeline1_year:'البرمجة', timeline1_title:'منطق واضح وقابل للتطوير', timeline1_text:'تنظيم الكلاسات والبيانات والأحداث، تطبيق OOP، التحقق من المدخلات، معالجة الحالات، وربط الواجهات بالوظائف المطلوبة.', timeline2_year:'البيانات', timeline2_title:'تصميم علاقات صحيحة واستعلامات عملية', timeline2_text:'تحويل المتطلبات إلى ERD وRelational Schema ثم إنشاء الجداول والمفاتيح والقيود وتنفيذ عمليات الإدخال والتعديل والحذف والـJoins.', timeline3_year:'التجربة', timeline3_title:'واجهة جميلة تخدم رحلة المستخدم', timeline3_text:'تحديد احتياجات المستخدم، بناء تدفقات واضحة، تصميم شاشات متناسقة، وتحويل الفكرة إلى Prototype قابل للعرض والتقييم.',
+      skill_android:'Activities، XML Layouts، Events، SQLite وواجهات عربية.', skill_java:'OOP، Inheritance، Polymorphism، Exceptions، Collections وJavaFX.', skill_db:'ERD، Schema، PK/FK، Constraints، CRUD، Joins وQueries.', skill_ux:'Research، User Flow، Wireframes، High Fidelity وPrototype.',
+      work_title:'معرض الأعمال', work_desc:'اضغط على عرض المشروع لفتح الصور كاملة، والتنقل بينها بالأسهم، وقراءة تفاصيل التنفيذ وتحميل الملفات المتاحة.', filter_all:'الكل', filter_design:'تصميم', filter_ux:'تجربة مستخدم', filter_dev:'برمجة', work_contact:'للتعاون أو الاستفسار تواصل معي', view_project:'عرض المشروع',
+      safe_cover:'Safe Circle — دائرة الأمان', safe_meta:'تطوير Android', safe_title:'تطبيق Safe Circle لإدارة جهات الطوارئ', safe_desc:'تطبيق Android بلغة Java لإنشاء حساب وإدارة جهات اتصال الطوارئ مع الأولوية والملاحظات والملف الشخصي وتخزين البيانات محليًا.',
+      hospital_cover:'Smart Care — نظام المستشفى', hospital_meta:'تطوير JavaFX', hospital_title:'نظام Smart Care لإدارة المستشفى', hospital_desc:'نظام JavaFX لتسجيل المرضى وحجز المواعيد والتحقق من تعارض الطبيب وتحديث حالة الموعد وحفظ البيانات في ملفات.',
+      database_cover:'قاعدة بيانات العيادة الطبية', database_meta:'قاعدة بيانات SQL Server', database_title:'قاعدة بيانات العيادة الطبية', database_desc:'مشروع SQL Server يبدأ من ERD والـSchema وصولًا إلى الجداول والعلاقات والقيود وإدارة البيانات والاستعلامات والتقارير.',
+      wasel_cover:'WASEL — واصل UX/UI', wasel_meta:'دراسة حالة UX/UI', wasel_title:'تجربة مستخدم وواجهات تطبيق واصل', wasel_desc:'دراسة حالة لتطبيق توصيل طعام ذكي تشمل البحث والتحليل وتدفقات الاستخدام وواجهات عالية الدقة ومزايا الذكاء الاصطناعي والطلب الجماعي.',
+      contact_eyebrow:'تواصل معي', contact_title:'لديك فرصة تدريب أو مشروع برمجي أو واجهة تطبيق؟ يسعدني التواصل.', contact_desc:'اكتب رسالتك وأرسلها مباشرة من الموقع، أو تواصل معي بسرعة عبر واتساب.', form_name_label:'الاسم', form_name_ph:'اكتب اسمك', form_email_label:'إيميلك', form_email_ph:'example@email.com', form_subject_label:'موضوع الرسالة', form_subject_ph:'مثلاً: فرصة تدريب Android', form_message_label:'محتوى الرسالة', form_message_ph:'اكتب تفاصيل الرسالة...', form_submit:'إرسال الرسالة مباشرة', form_help:'ستصل الرسالة مباشرة إلى بريدي دون فتح تطبيق البريد.', contact_card2_eyebrow:'بيانات التواصل', contact_card2_title:'متاح للتدريب والمشاريع وفرص التطوير المبدئية.', contact_card2_desc:'يمكن التواصل معي بشأن Android وJava وقواعد البيانات وتصميم واجهات وتجربة المستخدم.', contact_email_label:'البريد الإلكتروني', contact_phone_label:'رقم الجوال والواتساب', contact_card3_title:'شاهد تفاصيل المشاريع أولًا', contact_card3_desc:'كل بطاقة مشروع تحتوي معرض صور كامل وملفات قابلة للتحميل.', contact_cta_primary_work:'استعرض الأعمال', contact_cta_secondary:'العودة للأعلى', footer_copy:'© 2026 يوسف ميسرة أبو هين — معرض أعمال برمجي', footer_note:'Android • Java • SQL Server • UX/UI', project_features:'أبرز ما تم تنفيذه', close:'إغلاق', gallery_image:'صورة', download:'تحميل'
+     },
+     en: {
+      brand_name:'Yosef Maysara Abu Hein', brand_role:'Mobile Application Developer & UI/UX Designer', nav_home:'Home', nav_about:'About', nav_work:'Work', nav_contact:'Contact',
+      eyebrow:'Thoughtful applications and digital experiences', hero_title:'I turn ideas into usable applications, systems, and clear interfaces.', hero_desc:'I am Yosef Maysara Abu Hein, a Mobile Applications Design and Development student. My projects connect Android, Java, databases, and UX/UI with structured logic, well-related data, and user-focused interfaces.', hero_cta_primary:'View Projects', hero_cta_secondary:'Contact Me', stat_projects:'Documented core projects', stat_specialties:'Mobile apps and desktop systems', stat_bilingual:'Databases and user experience',
+      about_title:'About Me and My Fields', about_desc:'My work connects application development, system logic, database design, and user experience from the initial idea to a presentable final solution.', about_card1_eyebrow:'Who I Am', about_card1_title:'An application developer and interface designer who treats each project as a complete system.', about_card1_text:'I develop Android applications with Java, build JavaFX systems using object-oriented programming, and design SQL Server databases with tables, relationships, constraints, and practical queries. In UX/UI, I work on research, user flows, wireframes, high-fidelity interfaces, and Figma prototypes.', about_card2_eyebrow:'How I Work',
+      timeline1_year:'Development', timeline1_title:'Clear and extendable logic', timeline1_text:'Organizing classes, data, and events; applying OOP; validating inputs; handling edge cases; and connecting interfaces to required functions.', timeline2_year:'Data', timeline2_title:'Correct relationships and practical queries', timeline2_text:'Translating requirements into an ERD and relational schema, then building tables, keys, constraints, CRUD operations, joins, and reports.', timeline3_year:'Experience', timeline3_title:'A polished interface that supports the user journey', timeline3_text:'Understanding user needs, planning clear flows, designing consistent screens, and turning the concept into a testable prototype.',
+      skill_android:'Activities, XML layouts, event handling, SQLite, and Arabic interfaces.', skill_java:'OOP, inheritance, polymorphism, exceptions, collections, and JavaFX.', skill_db:'ERD, schema, PK/FK, constraints, CRUD, joins, and queries.', skill_ux:'Research, user flows, wireframes, high fidelity, and prototyping.',
+      work_title:'Selected Work', work_desc:'Open any project to browse its full image gallery with working arrows, read implementation details, and download the available files.', filter_all:'All', filter_design:'Design', filter_ux:'User Experience', filter_dev:'Development', work_contact:'Contact me for collaboration or questions', view_project:'View Project',
+      safe_cover:'Safe Circle — Emergency Contacts', safe_meta:'Android Development', safe_title:'Safe Circle Emergency Contacts App', safe_desc:'A Java Android app for account creation and emergency-contact management, including priorities, notes, profiles, and local data storage.',
+      hospital_cover:'Smart Care — Hospital System', hospital_meta:'JavaFX Development', hospital_title:'Smart Care Hospital Management System', hospital_desc:'A JavaFX system for registering patients, booking appointments, detecting doctor conflicts, updating status, and saving data to files.',
+      database_cover:'Medical Clinic Database', database_meta:'SQL Server Database', database_title:'Medical Clinic Database', database_desc:'A SQL Server project covering ERD and schema design, table creation, relationships, constraints, data management, queries, and reports.',
+      wasel_cover:'WASEL — UX/UI', wasel_meta:'UX/UI Case Study', wasel_title:'WASEL Food Delivery UX/UI', wasel_desc:'A smart food-delivery case study covering research, flows, high-fidelity interfaces, AI-assisted ordering, and group-order experiences.',
+      contact_eyebrow:'Contact Me', contact_title:'Have an internship, development project, or app-interface opportunity? Let’s talk.', contact_desc:'Write and send your message directly from the website, or contact me quickly on WhatsApp.', form_name_label:'Your Name', form_name_ph:'Enter your name', form_email_label:'Your Email', form_email_ph:'example@email.com', form_subject_label:'Subject', form_subject_ph:'e.g. Android internship opportunity', form_message_label:'Message', form_message_ph:'Write the message details...', form_submit:'Send Message Directly', form_help:'Your message will be delivered directly to my inbox without opening an email application.', contact_card2_eyebrow:'Contact Details', contact_card2_title:'Available for internships, projects, and junior development opportunities.', contact_card2_desc:'You can contact me about Android, Java, databases, UI design, and user experience.', contact_email_label:'Email', contact_phone_label:'Mobile & WhatsApp', contact_card3_title:'Explore the projects first', contact_card3_desc:'Every project card includes a complete gallery and downloadable files.', contact_cta_primary_work:'View Projects', contact_cta_secondary:'Back to Top', footer_copy:'© 2026 Yosef Maysara Abu Hein — Development Portfolio', footer_note:'Android • Java • SQL Server • UX/UI', project_features:'Key Implementation Highlights', close:'Close', gallery_image:'Image', download:'Download'
+     }
+    };
 
-var projectData = {
- safe:{
-  type:{ar:'تطبيق Android متكامل',en:'Complete Android Application'}, title:{ar:'Safe Circle — دائرة الأمان',en:'Safe Circle — Emergency Contacts'},
-  desc:{ar:'تطبيق موبايل عربي مخصص لتنظيم جهات اتصال الطوارئ داخل حساب المستخدم. يجمع بين واجهات Android المصممة بـXML ومنطق Java وقاعدة SQLite محلية، ويقدم رحلة تبدأ من التسجيل وتسجيل الدخول حتى إدارة البيانات والملف الشخصي.',en:'An Arabic mobile application for organizing emergency contacts inside each user account. It combines XML Android interfaces, Java logic, and a local SQLite database, covering the journey from registration and login to contact and profile management.'},
-  features:{ar:['إنشاء حساب وتسجيل الدخول باستخدام اسم المستخدم أو البريد الإلكتروني.','تخزين المستخدمين وجهات الاتصال في جداول SQLite منفصلة ومترابطة.','إضافة جهة اتصال مع صلة القرابة والعنوان والأولوية والملاحظات والحالة المهمة.','تعديل جهات الاتصال وحذفها وعرض تفاصيلها من خلال RecyclerView وAdapter.','إدارة الملف الشخصي وتخزين صورة المستخدم داخل قاعدة البيانات.'],en:['Account creation and login using a username or email address.','Separate, related SQLite tables for users and emergency contacts.','Contact creation with relationship, address, priority, notes, and important status.','Contact viewing, editing, and deletion through a RecyclerView and adapter.','Profile management with the user image stored in the local database.']},
-  tools:['Android Studio','Java','SQLite','XML Layouts','RecyclerView','CRUD'], images:['assets/projects/safe/01.webp','assets/projects/safe/02.webp','assets/projects/safe/03.webp','assets/projects/safe/04.webp','assets/projects/safe/05.webp','assets/projects/safe/06.webp','assets/projects/safe/07.webp','assets/projects/safe/08.webp'], captions:{ar:['شاشة الترحيب والهوية البصرية لتطبيق دائرة الأمان.','إنشاء حساب جديد وإدخال بيانات المستخدم الأساسية.','القائمة الرئيسية والوصول السريع إلى وظائف التطبيق.','إضافة جهة اتصال طوارئ مع العلاقة والأولوية والملاحظات.','الملف الشخصي وعرض بيانات الحساب وإدارتها.','قائمة جهات اتصال الطوارئ مع أدوات التعديل والحذف.','صفحة تفاصيل جهة الاتصال ووسائل التواصل السريعة.','شاشة تسجيل الدخول إلى حساب المستخدم.'],en:['Welcome screen and Safe Circle visual identity.','New-account registration and basic user information.','Main menu with quick access to application features.','Emergency-contact creation with relationship, priority, and notes.','User profile and account-information management.','Emergency-contact list with edit and delete controls.','Contact details and quick communication actions.','User account login screen.']},
-  actions:[{ar:'تحميل ملف APK',en:'Download APK',href:'downloads/SafeCircle.apk',primary:true,download:true},{ar:'تحميل مشروع Android Studio',en:'Download Android Studio Project',href:'downloads/SafeCircle_Android_Studio_Source.zip',download:true}]
- },
- hospital:{
-  type:{ar:'نظام JavaFX وبرمجة كائنية',en:'JavaFX & Object-Oriented System'}, title:{ar:'Smart Care — نظام إدارة المستشفى',en:'Smart Care — Hospital Management System'},
-  desc:{ar:'نظام سطح مكتب مبني بـJavaFX لإدارة المرضى والأطباء والمواعيد. يطبق الوراثة وتعدد الأشكال والاستثناءات والقوائم، ويحتوي تحققًا من تعارض المواعيد مع إمكانية تحديث الحالة وعرض السجل وحفظ البيانات في ملفات.',en:'A JavaFX desktop system for managing patients, doctors, and appointments. It applies inheritance, polymorphism, exceptions, and collections, with doctor-conflict validation, appointment-status updates, activity history, and file persistence.'},
-  features:{ar:['تسجيل المرضى مع الهوية والهاتف وفصيلة الدم والتشخيص.','تحميل بيانات الأطباء من ملف وإظهار التخصصات داخل القوائم.','حجز موعد بين طبيب ومريض مع التاريخ والوقت.','استخدام DoctorUnavailableException لمنع حجز الطبيب في موعد متعارض.','تحديث حالة الموعد وعرض الأشخاص باستخدام Polymorphism.','تصدير المواعيد إلى ملف نصي واستعادتها ضمن دورة عمل النظام.'],en:['Patient registration with ID, phone, blood type, and diagnosis.','Doctor data loaded from a file and displayed with specialties.','Appointment booking between a selected doctor and patient.','DoctorUnavailableException prevents conflicting bookings.','Appointment-status updates and polymorphic people display.','Appointment export to text files as part of the workflow.']},
-  tools:['Java','JavaFX','OOP','Inheritance','Polymorphism','Exceptions','ArrayList','File I/O'], images:['assets/projects/hospital/01.webp','assets/projects/hospital/02.webp','assets/projects/hospital/03.webp','assets/projects/hospital/04.webp'], captions:{ar:['إضافة مريض جديد مع التحقق من البيانات وإشعار نجاح العملية.','لوحة الأطباء والبحث باستخدام تعدد الأشكال مع إحصاءات النظام.','تأكيد حجز الموعد وعرض التقرير الكامل للمريض والطبيب والحالة.','إدارة المواعيد وحالاتها مع التصفية والإجراءات المتاحة.'],en:['Adding a new patient with validation and a successful-operation notice.','Doctor dashboard and polymorphic search with system statistics.','Appointment confirmation and the complete patient, doctor, and status report.','Appointment management, status tracking, filtering, and available actions.']},
-  actions:[{ar:'تحميل كود مشروع Java',en:'Download Java Project Source',href:'downloads/SmartCare_Java_Source.zip',primary:true,download:true}]
- },
- database:{
-  type:{ar:'تصميم وتنفيذ قاعدة بيانات SQL Server',en:'SQL Server Database Design & Implementation'}, title:{ar:'Medical Clinic Database — قاعدة بيانات العيادة',en:'Medical Clinic Database'},
-  desc:{ar:'قاعدة بيانات علائقية لعيادة طبية تم بناؤها على مراحل تبدأ بتحليل الكيانات والعلاقات ثم تحويلها إلى Schema وتنفيذها على SQL Server. يشمل المشروع إنشاء الجداول والمفاتيح والقيود، إدخال البيانات وتحديثها وحذفها، وتنفيذ استعلامات Where وJoins لإنتاج تقارير مفيدة.',en:'A relational database for a medical clinic, built in stages from entity-relationship analysis to a relational schema and SQL Server implementation. The project includes tables, keys, constraints, data insertion, updates, deletion, WHERE queries, joins, and practical reports.'},
-  features:{ar:['تصميم ERD للمرضى والأطباء والموظفين والإداريين والتخصصات والمواعيد.','تحويل النموذج المفاهيمي إلى Relational Schema واضح بالمفاتيح الأساسية والأجنبية.','إنشاء قاعدة البيانات والجداول الرئيسية والجداول المرتبطة.','إضافة العلاقات وقيود التكامل المرجعي باستخدام Primary Key وForeign Key.','تنفيذ Insert وUpdate وDelete مع توثيق النتائج قبل العملية وبعدها.','بناء تقارير باستخدام INNER JOIN واستعلامات تصفية بالتواريخ والشروط.'],en:['ERD design for patients, doctors, employees, administrators, specialties, and appointments.','Conversion of the conceptual model into a relational schema with primary and foreign keys.','Database creation with main and related tables.','Referential-integrity relationships and constraints using PK and FK definitions.','Documented INSERT, UPDATE, and DELETE operations with before-and-after results.','Reports built with INNER JOIN and filtered WHERE queries.']},
-  tools:['SQL Server','SSMS','ERD','Relational Schema','Primary Keys','Foreign Keys','CRUD','Joins'], images:['assets/projects/database/01.webp','assets/projects/database/02.webp','assets/projects/database/03.webp','assets/projects/database/04.webp','assets/projects/database/05.webp'], captions:{ar:['غلاف مشروع نظام إدارة مجمع عيادات طبية والكيانات الأساسية.','مخطط الكيانات والعلاقات ERD والعلاقات بين المرضى والمواعيد والأطباء.','المخطط العلائقي للجداول والمفاتيح الأساسية والأجنبية.','تنفيذ أوامر إنشاء قاعدة البيانات والجداول والقيود على SQL Server.','تنفيذ الاستعلامات وعرض البيانات والنتائج داخل SQL Server Management Studio.'],en:['Medical-clinic management database overview and core entities.','Entity-relationship diagram linking patients, appointments, doctors, and related entities.','Relational schema with tables, primary keys, and foreign keys.','SQL Server database, table, and constraint creation scripts.','Queries, stored data, and result sets in SQL Server Management Studio.']},
-  actions:[{ar:'تحميل مشروع قواعد البيانات',en:'Download Database Project',href:'downloads/Medical_Clinic_Database_SQL_Server.zip',primary:true,download:true}]
- },
- wasel:{
-  type:{ar:'دراسة حالة UX/UI لتطبيق موبايل',en:'Mobile App UX/UI Case Study'}, title:{ar:'WASEL — تطبيق توصيل الطعام الذكي',en:'WASEL — Smart Food Delivery App'},
-  desc:{ar:'دراسة حالة متكاملة لتطبيق واصل، تبدأ من تعريف المشكلة وفهم المستخدم والمنافسين، ثم هندسة المعلومات وتدفقات الاستخدام والـWireframes وصولًا إلى واجهات عالية الدقة. يركز الحل على تسريع اختيار الوجبة من خلال مساعد ذكي، الطلب الجماعي، تقسيم الفاتورة، عرض الوجبة ثلاثي الأبعاد، والتتبع المباشر.',en:'A complete case study for WASEL, moving from problem definition, user understanding, and competitor analysis through information architecture, user flows, wireframes, and high-fidelity interfaces. The solution supports faster food decisions through an AI assistant, group ordering, bill splitting, 3D meal previews, and live tracking.'},
-  features:{ar:['تحديد المشكلة واحتياجات المستخدم وبناء Personas وسيناريوهات استخدام.','تحليل تطبيقات منافسة واستخلاص فرص تحسين تجربة الطلب.','تصميم Information Architecture وUser Flows لعشرين شاشة رئيسية.','مساعد ذكي يقترح الأسرع أو الأرخص أو الوجبة المناسبة للميزانية وعدد الأشخاص.','طلب جماعي عبر رابط أو QR مع مشاركة المشاركين وتقسيم الفاتورة.','واجهات عالية الدقة تشمل البحث والمطاعم والوجبات والسلة والدفع والتتبع والتقييم.'],en:['Problem definition, user needs, personas, and usage scenarios.','Competitor analysis used to identify food-ordering experience opportunities.','Information architecture and user flows for twenty core screens.','AI assistant recommendations for speed, price, budget, and group size.','Group ordering through a link or QR code with participant and bill-splitting flows.','High-fidelity screens for search, restaurants, meals, cart, payment, tracking, and reviews.']},
-  tools:['Figma','UX Research','Personas','User Flow','Wireframes','High Fidelity','Prototype','UI System'], images:['assets/projects/wasel/01.webp','assets/projects/wasel/02.webp','assets/projects/wasel/03.webp','assets/projects/wasel/04.webp','assets/projects/wasel/05.webp','assets/projects/wasel/06.webp','assets/projects/wasel/07.webp','assets/projects/wasel/08.webp'], captions:{ar:['الصفحة الرئيسية لتطبيق واصل وعرض المطاعم والوجبات المقترحة.','شاشة البداية والهوية البصرية لتطبيق WASEL.','تسجيل الدخول والوصول إلى حساب المستخدم.','البحث عن المطاعم والوجبات باستخدام الفئات والاقتراحات.','المساعد الذكي لاقتراح الوجبات حسب الميزانية والسرعة وعدد الأشخاص.','معاينة الوجبة ثلاثية الأبعاد قبل الإضافة إلى السلة.','الطلب الجماعي عبر الرابط أو رمز QR ومتابعة المشاركين.','الملف الشخصي وإدارة معلومات المستخدم وإعداداته.'],en:['WASEL home screen with restaurants and suggested meals.','WASEL splash screen and visual identity.','User login and account access.','Restaurant and meal search through categories and suggestions.','AI assistant recommendations based on budget, speed, and group size.','Three-dimensional meal preview before adding an item to the cart.','Group ordering through a link or QR code with participant tracking.','User profile, information, and settings management.']},
-  actions:[{ar:'فتح مشروع Figma',en:'Open Figma Project',href:'https://www.figma.com/design/G4FIxjkVBy5riKOb3uxIPM/%D9%8A%D9%88%D8%B3%D9%81-%D9%85%D9%8A%D8%B3%D8%B1%D8%A9-%D9%85%D8%AD%D9%85%D8%AF-%D8%A7%D8%A8%D9%88%D9%87%D9%8A%D9%86120251082?node-id=0-1&t=Fg09cveRn2ggmDZt-1',primary:true,external:true},{ar:'فتح دراسة الحالة على Behance',en:'Open Behance Case Study',href:'https://www.behance.net/gallery/253418877/WASEL-Smart-Food-Delivery-App-UXUI-Case-Study',external:true},{ar:'معاينة ملف دراسة الحالة PDF',en:'Open Case Study PDF',href:'downloads/WASEL_UX_UI_Case_Study.pdf',external:true},{ar:'تحميل ملفات مشروع WASEL',en:'Download WASEL Project Files',href:'downloads/WASEL_UX_UI_Project.zip',download:true}]
- }
-};
+    var projectData = {
+     safe:{
+      type:{ar:'تطبيق Android متكامل',en:'Complete Android Application'}, title:{ar:'Safe Circle — دائرة الأمان',en:'Safe Circle — Emergency Contacts'},
+      desc:{ar:'تطبيق موبايل عربي مخصص لتنظيم جهات اتصال الطوارئ داخل حساب المستخدم. يجمع بين واجهات Android المصممة بـXML ومنطق Java وقاعدة SQLite محلية، ويقدم رحلة تبدأ من التسجيل وتسجيل الدخول حتى إدارة البيانات والملف الشخصي.',en:'An Arabic mobile application for organizing emergency contacts inside each user account. It combines XML Android interfaces, Java logic, and a local SQLite database, covering the journey from registration and login to contact and profile management.'},
+      features:{ar:['إنشاء حساب وتسجيل الدخول باستخدام اسم المستخدم أو البريد الإلكتروني.','تخزين المستخدمين وجهات الاتصال في جداول SQLite منفصلة ومترابطة.','إضافة جهة اتصال مع صلة القرابة والعنوان والأولوية والملاحظات والحالة المهمة.','تعديل جهات الاتصال وحذفها وعرض تفاصيلها من خلال RecyclerView وAdapter.','إدارة الملف الشخصي وتخزين صورة المستخدم داخل قاعدة البيانات.'],en:['Account creation and login using a username or email address.','Separate, related SQLite tables for users and emergency contacts.','Contact creation with relationship, address, priority, notes, and important status.','Contact viewing, editing, and deletion through a RecyclerView and adapter.','Profile management with the user image stored in the local database.']},
+      tools:['Android Studio','Java','SQLite','XML Layouts','RecyclerView','CRUD'], images:['assets/projects/safe/01.webp','assets/projects/safe/02.webp','assets/projects/safe/03.webp','assets/projects/safe/04.webp','assets/projects/safe/05.webp','assets/projects/safe/06.webp','assets/projects/safe/07.webp','assets/projects/safe/08.webp'], captions:{ar:['شاشة الترحيب والهوية البصرية لتطبيق دائرة الأمان.','إنشاء حساب جديد وإدخال بيانات المستخدم الأساسية.','القائمة الرئيسية والوصول السريع إلى وظائف التطبيق.','إضافة جهة اتصال طوارئ مع العلاقة والأولوية والملاحظات.','الملف الشخصي وعرض بيانات الحساب وإدارتها.','قائمة جهات اتصال الطوارئ مع أدوات التعديل والحذف.','صفحة تفاصيل جهة الاتصال ووسائل التواصل السريعة.','شاشة تسجيل الدخول إلى حساب المستخدم.'],en:['Welcome screen and Safe Circle visual identity.','New-account registration and basic user information.','Main menu with quick access to application features.','Emergency-contact creation with relationship, priority, and notes.','User profile and account-information management.','Emergency-contact list with edit and delete controls.','Contact details and quick communication actions.','User account login screen.']},
+      actions:[{ar:'تحميل ملف APK',en:'Download APK',href:'downloads/SafeCircle.apk',primary:true,download:true},{ar:'تحميل مشروع Android Studio',en:'Download Android Studio Project',href:'downloads/SafeCircle_Android_Studio_Source.zip',download:true}]
+     },
+     hospital:{
+      type:{ar:'نظام JavaFX وبرمجة كائنية',en:'JavaFX & Object-Oriented System'}, title:{ar:'Smart Care — نظام إدارة المستشفى',en:'Smart Care — Hospital Management System'},
+      desc:{ar:'نظام سطح مكتب مبني بـJavaFX لإدارة المرضى والأطباء والمواعيد. يطبق الوراثة وتعدد الأشكال والاستثناءات والقوائم، ويحتوي تحققًا من تعارض المواعيد مع إمكانية تحديث الحالة وعرض السجل وحفظ البيانات في ملفات.',en:'A JavaFX desktop system for managing patients, doctors, and appointments. It applies inheritance, polymorphism, exceptions, and collections, with doctor-conflict validation, appointment-status updates, activity history, and file persistence.'},
+      features:{ar:['تسجيل المرضى مع الهوية والهاتف وفصيلة الدم والتشخيص.','تحميل بيانات الأطباء من ملف وإظهار التخصصات داخل القوائم.','حجز موعد بين طبيب ومريض مع التاريخ والوقت.','استخدام DoctorUnavailableException لمنع حجز الطبيب في موعد متعارض.','تحديث حالة الموعد وعرض الأشخاص باستخدام Polymorphism.','تصدير المواعيد إلى ملف نصي واستعادتها ضمن دورة عمل النظام.'],en:['Patient registration with ID, phone, blood type, and diagnosis.','Doctor data loaded from a file and displayed with specialties.','Appointment booking between a selected doctor and patient.','DoctorUnavailableException prevents conflicting bookings.','Appointment-status updates and polymorphic people display.','Appointment export to text files as part of the workflow.']},
+      tools:['Java','JavaFX','OOP','Inheritance','Polymorphism','Exceptions','ArrayList','File I/O'], images:['assets/projects/hospital/01.webp','assets/projects/hospital/02.webp','assets/projects/hospital/03.webp','assets/projects/hospital/04.webp'], captions:{ar:['إضافة مريض جديد مع التحقق من البيانات وإشعار نجاح العملية.','لوحة الأطباء والبحث باستخدام تعدد الأشكال مع إحصاءات النظام.','تأكيد حجز الموعد وعرض التقرير الكامل للمريض والطبيب والحالة.','إدارة المواعيد وحالاتها مع التصفية والإجراءات المتاحة.'],en:['Adding a new patient with validation and a successful-operation notice.','Doctor dashboard and polymorphic search with system statistics.','Appointment confirmation and the complete patient, doctor, and status report.','Appointment management, status tracking, filtering, and available actions.']},
+      actions:[{ar:'تحميل كود مشروع Java',en:'Download Java Project Source',href:'downloads/SmartCare_Java_Source.zip',primary:true,download:true}]
+     },
+     database:{
+      type:{ar:'تصميم وتنفيذ قاعدة بيانات SQL Server',en:'SQL Server Database Design & Implementation'}, title:{ar:'Medical Clinic Database — قاعدة بيانات العيادة',en:'Medical Clinic Database'},
+      desc:{ar:'قاعدة بيانات علائقية لعيادة طبية تم بناؤها على مراحل تبدأ بتحليل الكيانات والعلاقات ثم تحويلها إلى Schema وتنفيذها على SQL Server. يشمل المشروع إنشاء الجداول والمفاتيح والقيود، إدخال البيانات وتحديثها وحذفها، وتنفيذ استعلامات Where وJoins لإنتاج تقارير مفيدة.',en:'A relational database for a medical clinic, built in stages from entity-relationship analysis to a relational schema and SQL Server implementation. The project includes tables, keys, constraints, data insertion, updates, deletion, WHERE queries, joins, and practical reports.'},
+      features:{ar:['تصميم ERD للمرضى والأطباء والموظفين والإداريين والتخصصات والمواعيد.','تحويل النموذج المفاهيمي إلى Relational Schema واضح بالمفاتيح الأساسية والأجنبية.','إنشاء قاعدة البيانات والجداول الرئيسية والجداول المرتبطة.','إضافة العلاقات وقيود التكامل المرجعي باستخدام Primary Key وForeign Key.','تنفيذ Insert وUpdate وDelete مع توثيق النتائج قبل العملية وبعدها.','بناء تقارير باستخدام INNER JOIN واستعلامات تصفية بالتواريخ والشروط.'],en:['ERD design for patients, doctors, employees, administrators, specialties, and appointments.','Conversion of the conceptual model into a relational schema with primary and foreign keys.','Database creation with main and related tables.','Referential-integrity relationships and constraints using PK and FK definitions.','Documented INSERT, UPDATE, and DELETE operations with before-and-after results.','Reports built with INNER JOIN and filtered WHERE queries.']},
+      tools:['SQL Server','SSMS','ERD','Relational Schema','Primary Keys','Foreign Keys','CRUD','Joins'], images:['assets/projects/database/01.webp','assets/projects/database/02.webp','assets/projects/database/03.webp','assets/projects/database/04.webp','assets/projects/database/05.webp'], captions:{ar:['غلاف مشروع نظام إدارة مجمع عيادات طبية والكيانات الأساسية.','مخطط الكيانات والعلاقات ERD والعلاقات بين المرضى والمواعيد والأطباء.','المخطط العلائقي للجداول والمفاتيح الأساسية والأجنبية.','تنفيذ أوامر إنشاء قاعدة البيانات والجداول والقيود على SQL Server.','تنفيذ الاستعلامات وعرض البيانات والنتائج داخل SQL Server Management Studio.'],en:['Medical-clinic management database overview and core entities.','Entity-relationship diagram linking patients, appointments, doctors, and related entities.','Relational schema with tables, primary keys, and foreign keys.','SQL Server database, table, and constraint creation scripts.','Queries, stored data, and result sets in SQL Server Management Studio.']},
+      actions:[{ar:'تحميل مشروع قواعد البيانات',en:'Download Database Project',href:'downloads/Medical_Clinic_Database_SQL_Server.zip',primary:true,download:true}]
+     },
+     wasel:{
+      type:{ar:'دراسة حالة UX/UI لتطبيق موبايل',en:'Mobile App UX/UI Case Study'}, title:{ar:'WASEL — تطبيق توصيل الطعام الذكي',en:'WASEL — Smart Food Delivery App'},
+      desc:{ar:'دراسة حالة متكاملة لتطبيق واصل، تبدأ من تعريف المشكلة وفهم المستخدم والمنافسين، ثم هندسة المعلومات وتدفقات الاستخدام والـWireframes وصولًا إلى واجهات عالية الدقة. يركز الحل على تسريع اختيار الوجبة من خلال مساعد ذكي، الطلب الجماعي، تقسيم الفاتورة، عرض الوجبة ثلاثي الأبعاد، والتتبع المباشر.',en:'A complete case study for WASEL, moving from problem definition, user understanding, and competitor analysis through information architecture, user flows, wireframes, and high-fidelity interfaces. The solution supports faster food decisions through an AI assistant, group ordering, bill splitting, 3D meal previews, and live tracking.'},
+      features:{ar:['تحديد المشكلة واحتياجات المستخدم وبناء Personas وسيناريوهات استخدام.','تحليل تطبيقات منافسة واستخلاص فرص تحسين تجربة الطلب.','تصميم Information Architecture وUser Flows لعشرين شاشة رئيسية.','مساعد ذكي يقترح الأسرع أو الأرخص أو الوجبة المناسبة للميزانية وعدد الأشخاص.','طلب جماعي عبر رابط أو QR مع مشاركة المشاركين وتقسيم الفاتورة.','واجهات عالية الدقة تشمل البحث والمطاعم والوجبات والسلة والدفع والتتبع والتقييم.'],en:['Problem definition, user needs, personas, and usage scenarios.','Competitor analysis used to identify food-ordering experience opportunities.','Information architecture and user flows for twenty core screens.','AI assistant recommendations for speed, price, budget, and group size.','Group ordering through a link or QR code with participant and bill-splitting flows.','High-fidelity screens for search, restaurants, meals, cart, payment, tracking, and reviews.']},
+      tools:['Figma','UX Research','Personas','User Flow','Wireframes','High Fidelity','Prototype','UI System'], images:['assets/projects/wasel/01.webp','assets/projects/wasel/02.webp','assets/projects/wasel/03.webp','assets/projects/wasel/04.webp','assets/projects/wasel/05.webp','assets/projects/wasel/06.webp','assets/projects/wasel/07.webp','assets/projects/wasel/08.webp'], captions:{ar:['الصفحة الرئيسية لتطبيق واصل وعرض المطاعم والوجبات المقترحة.','شاشة البداية والهوية البصرية لتطبيق WASEL.','تسجيل الدخول والوصول إلى حساب المستخدم.','البحث عن المطاعم والوجبات باستخدام الفئات والاقتراحات.','المساعد الذكي لاقتراح الوجبات حسب الميزانية والسرعة وعدد الأشخاص.','معاينة الوجبة ثلاثية الأبعاد قبل الإضافة إلى السلة.','الطلب الجماعي عبر الرابط أو رمز QR ومتابعة المشاركين.','الملف الشخصي وإدارة معلومات المستخدم وإعداداته.'],en:['WASEL home screen with restaurants and suggested meals.','WASEL splash screen and visual identity.','User login and account access.','Restaurant and meal search through categories and suggestions.','AI assistant recommendations based on budget, speed, and group size.','Three-dimensional meal preview before adding an item to the cart.','Group ordering through a link or QR code with participant tracking.','User profile, information, and settings management.']},
+      actions:[{ar:'فتح مشروع Figma',en:'Open Figma Project',href:'https://www.figma.com/design/G4FIxjkVBy5riKOb3uxIPM/%D9%8A%D9%88%D8%B3%D9%81-%D9%85%D9%8A%D8%B3%D8%B1%D8%A9-%D9%85%D8%AD%D9%85%D8%AF-%D8%A7%D8%A8%D9%88%D9%87%D9%8A%D9%86120251082?node-id=0-1&t=Fg09cveRn2ggmDZt-1',primary:true,external:true},{ar:'فتح دراسة الحالة على Behance',en:'Open Behance Case Study',href:'https://www.behance.net/gallery/253418877/WASEL-Smart-Food-Delivery-App-UXUI-Case-Study',external:true},{ar:'معاينة ملف دراسة الحالة PDF',en:'Open Case Study PDF',href:'downloads/WASEL_UX_UI_Case_Study.pdf',external:true},{ar:'تحميل ملفات مشروع WASEL',en:'Download WASEL Project Files',href:'downloads/WASEL_UX_UI_Project.zip',download:true}]
+     }
+    };
 
-var root=document.documentElement, body=document.body;
-function storeGet(key,fallback){try{return localStorage.getItem(key)||fallback}catch(e){return fallback}}
-function storeSet(key,value){try{localStorage.setItem(key,value)}catch(e){}}
-var currentLang=storeGet('portfolio-lang-v1','ar');
-var currentProject=null, galleryIndex=0;
-var qs=s=>document.querySelector(s), qsa=s=>document.querySelectorAll(s);
-function applyTheme(palette,mode){body.removeAttribute('data-theme');body.removeAttribute('data-mode');if(palette!=='default')body.dataset.theme=palette;if(mode==='light')body.dataset.mode='light';qsa('.theme-dot-btn').forEach(b=>b.classList.toggle('active',b.dataset.theme===palette));storeSet('portfolio-palette-v3',palette);storeSet('portfolio-mode-v3',mode);}
-function applyLanguage(lang){currentLang=lang;const d=translations[lang]||translations.ar;root.lang=lang;root.dir=lang==='ar'?'rtl':'ltr';document.title=lang==='ar'?'يوسف ميسرة أبو هين | مطور تطبيقات موبايل ومصمم UI/UX':'Yosef Maysara Abu Hein | Mobile Developer & UI/UX Designer';qsa('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(d[k])el.textContent=d[k]});qsa('[data-i18n-placeholder]').forEach(el=>{const k=el.dataset.i18nPlaceholder;if(d[k])el.placeholder=d[k]});qsa('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));storeSet('portfolio-lang-v1',lang);if(currentProject)renderProjectInfo();}
-applyTheme(storeGet('portfolio-palette-v3','default'),storeGet('portfolio-mode-v3','dark'));applyLanguage(currentLang);
-qsa('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLanguage(b.dataset.lang)));qsa('.theme-dot-btn').forEach(b=>b.addEventListener('click',()=>applyTheme(b.dataset.theme,body.dataset.mode==='light'?'light':'dark')));qs('#themeToggle').addEventListener('click',()=>applyTheme(body.dataset.theme||'default',body.dataset.mode==='light'?'dark':'light'));
-qsa('.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{qsa('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;qsa('.project-card').forEach(c=>c.style.display=f==='all'||c.dataset.category.includes(f)?'grid':'none')}));
-const revealObserver=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in-view')}),{threshold:.12});qsa('.reveal').forEach(e=>revealObserver.observe(e));
-const navLinks=qsa('.nav-links a');const navObserver=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-15% 0px -55% 0px',threshold:.05});qsa('main section').forEach(s=>navObserver.observe(s));
-const profileImg=qs('.profile-image'),fallback=qs('#initialsFallback');if(profileImg){profileImg.addEventListener('load',()=>{profileImg.classList.add('loaded');fallback.style.display='none'});profileImg.addEventListener('error',()=>{profileImg.style.display='none';fallback.style.display='flex'});if(profileImg.complete&&profileImg.naturalWidth){profileImg.classList.add('loaded');fallback.style.display='none'}}
-
-function openProject(key){currentProject=key;galleryIndex=0;renderProjectInfo();renderGallery();qs('#projectModal').classList.add('active');body.style.overflow='hidden';}
-function closeProject(){qs('#projectModal').classList.remove('active');body.style.overflow='';currentProject=null;}
-function renderProjectInfo(){if(!currentProject)return;const p=projectData[currentProject],l=currentLang;qs('#projectModalKicker').textContent=p.type[l];qs('#projectModalHeader').textContent=p.title[l];qs('#projectType').textContent=p.type[l];qs('#projectModalTitle').textContent=p.title[l];qs('#projectLongDesc').textContent=p.desc[l];qs('#projectFeatures').innerHTML=p.features[l].map(x=>`<li>${x}</li>`).join('');qs('#projectTools').innerHTML=p.tools.map(x=>`<span>${x}</span>`).join('');qs('#projectActions').innerHTML=p.actions.map(a=>`<a class="${a.primary?'cta':'ghost-btn'}" href="${a.href}" ${a.external?'target="_blank" rel="noopener noreferrer"':''} ${a.download?'download':''}>${a[l]}</a>`).join('');renderGallery();}
-function renderGallery(){if(!currentProject)return;const p=projectData[currentProject],img=qs('#galleryImage');galleryIndex=(galleryIndex+p.images.length)%p.images.length;img.classList.add('switching');setTimeout(()=>{img.src=p.images[galleryIndex];img.alt=p.captions[currentLang][galleryIndex];img.onload=()=>img.classList.remove('switching')},100);qs('#galleryCounter').textContent=`${galleryIndex+1} / ${p.images.length}`;qs('#galleryCaption').textContent=p.captions[currentLang][galleryIndex];qs('#galleryThumbs').innerHTML=p.images.map((s,i)=>`<button class="gallery-thumb ${i===galleryIndex?'active':''}" onclick="setGallery(${i})" aria-label="${i+1}"><img src="${s}" alt=""></button>`).join('');const active=qs('.gallery-thumb.active');if(active)active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
-function moveGallery(step){if(!currentProject)return;galleryIndex+=step;renderGallery();}
-function setGallery(i){galleryIndex=i;renderGallery();}
-qs('#projectModal').addEventListener('click',e=>{if(e.target.id==='projectModal')closeProject()});document.addEventListener('keydown',e=>{if(!currentProject)return;if(e.key==='Escape')closeProject();if(e.key==='ArrowLeft')moveGallery(root.dir==='rtl'?1:-1);if(e.key==='ArrowRight')moveGallery(root.dir==='rtl'?-1:1)});
-var touchX=0;qs('#galleryStage').addEventListener('touchstart',e=>touchX=e.changedTouches[0].clientX,{passive:true});qs('#galleryStage').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>45)moveGallery(dx>0?-1:1)},{passive:true});
-
-function copyText(text){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);const t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();return Promise.resolve();}
-qsa('.copy-action').forEach(btn=>btn.addEventListener('click',async()=>{const card=btn.closest('.contact-card');await copyText(card.dataset.copy);const old=btn.textContent;btn.textContent='✓';btn.classList.add('copied');setTimeout(()=>{btn.textContent=old;btn.classList.remove('copied')},1300)}));
-const CONTACT_ENDPOINT='https://formsubmit.co/ajax/yosefyaboheen@gmail.com';
-qs('#contactForm').addEventListener('submit',async e=>{
-  e.preventDefault();
-  const form=e.currentTarget;
-  const name=qs('#cf_name').value.trim();
-  const email=qs('#cf_email').value.trim();
-  const subject=qs('#cf_subject').value.trim();
-  const message=qs('#cf_message').value.trim();
-  const honey=qs('#cf_company').value.trim();
-  const status=qs('#formStatus');
-  const button=qs('#contactSubmit');
-  const label=button.querySelector('.submit-label');
-  const originalLabel=label.textContent;
-  const validEmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  if(!name||!validEmail||!subject||!message){
-    status.textContent=currentLang==='ar'?'يرجى تعبئة جميع الحقول وكتابة بريد إلكتروني صحيح.':'Please complete all fields and enter a valid email address.';
-    status.className='form-status error show';
-    return;
-  }
-  if(honey) return;
-
-  button.disabled=true;
-  label.textContent=currentLang==='ar'?'جارٍ إرسال الرسالة...':'Sending message...';
-  const spinner=document.createElement('span');
-  spinner.className='spinner';
-  button.prepend(spinner);
-  status.className='form-status';
-  status.textContent='';
-
-  const controller=new AbortController();
-  const timeout=setTimeout(()=>controller.abort(),15000);
-  try{
-    const response=await fetch(CONTACT_ENDPOINT,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({
-        name,
-        email,
-        _replyto:email,
-        subject,
-        _subject:'Portfolio Message: '+subject,
-        message,
-        _template:'table',
-        _honey:honey,
-        _url:window.location.href
-      }),
-      signal:controller.signal
+    var root=document.documentElement, body=document.body;
+    function storeGet(key,fallback){try{return localStorage.getItem(key)||fallback}catch(e){return fallback}}
+    function storeSet(key,value){try{localStorage.setItem(key,value)}catch(e){}}
+    var currentLang=storeGet('portfolio-lang-v1','ar');
+    var currentProject=null, galleryIndex=0;
+    var qs=s=>document.querySelector(s), qsa=s=>document.querySelectorAll(s);
+    function applyTheme(palette,mode){body.removeAttribute('data-theme');body.removeAttribute('data-mode');if(palette!=='default')body.dataset.theme=palette;if(mode==='light')body.dataset.mode='light';qsa('.theme-dot-btn').forEach(b=>b.classList.toggle('active',b.dataset.theme===palette));storeSet('portfolio-palette-v3',palette);storeSet('portfolio-mode-v3',mode);}
+    function applyLanguage(lang){currentLang=lang;const d=translations[lang]||translations.ar;root.lang=lang;root.dir='ltr';
+body.setAttribute('dir',lang==='ar'?'rtl':'ltr');document.title=lang==='ar'?'يوسف ميسرة أبو هين | مطور تطبيقات موبايل ومصمم UI/UX':'Yosef Maysara Abu Hein | Mobile Developer & UI/UX Designer';qsa('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(d[k])el.textContent=d[k]});qsa('[data-i18n-placeholder]').forEach(el=>{const k=el.dataset.i18nPlaceholder;if(d[k])el.placeholder=d[k]});qsa('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));storeSet('portfolio-lang-v1',lang);if(currentProject)renderProjectInfo();}
+    applyTheme(storeGet('portfolio-palette-v3','default'),storeGet('portfolio-mode-v3','dark'));applyLanguage(currentLang);
+    qsa('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLanguage(b.dataset.lang)));qsa('.theme-dot-btn').forEach(b=>b.addEventListener('click',()=>applyTheme(b.dataset.theme,body.dataset.mode==='light'?'light':'dark')));qs('#themeToggle').addEventListener('click',()=>applyTheme(body.dataset.theme||'default',body.dataset.mode==='light'?'dark':'light'));
+    qsa('.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{qsa('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;qsa('.project-card').forEach(c=>c.style.display=f==='all'||c.dataset.category.includes(f)?'grid':'none')}));
+if('IntersectionObserver' in window){
+  const revealObserver=new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+      }
     });
-    const data=await response.json().catch(()=>({}));
-    if(!response.ok||data.success===false) throw new Error(data.message||'Submission failed');
-    form.reset();
-    status.textContent=currentLang==='ar'?'تم إرسال رسالتك بنجاح، شكرًا لتواصلك.':'Your message was sent successfully. Thank you for reaching out.';
-    status.className='form-status success show';
-  }catch(error){
-    const mailto='mailto:yosefyaboheen@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent((currentLang==='ar'?'الاسم: ':'Name: ')+name+'\\n'+(currentLang==='ar'?'بريد المرسل: ':'Sender email: ')+email+'\\n\\n'+message);
-    status.innerHTML=(currentLang==='ar'?'تعذر الإرسال المباشر الآن. تأكد من الإنترنت أو تشغيل الموقع عبر خادم، ثم حاول مجددًا. ':'Direct sending failed. Check your connection or run the website through a web server, then try again. ')+`<a href="${mailto}">${currentLang==='ar'?'استخدم البريد كحل بديل':'Use email as a fallback'}</a>`;
-    status.className='form-status error show';
-  }finally{
-    clearTimeout(timeout);
-    button.disabled=false;
-    label.textContent=originalLabel;
-    if(spinner.isConnected)spinner.remove();
-  }
-});
+  },{threshold:.12});
 
-window.openProject=openProject;window.closeProject=closeProject;window.moveGallery=moveGallery;window.setGallery=setGallery;window.applyLanguage=applyLanguage;window.applyTheme=applyTheme;
-})();
+  qsa('.reveal').forEach((el)=>revealObserver.observe(el));
+}else{
+  qsa('.reveal').forEach((el)=>el.classList.add('in-view'));
+}    const navLinks=qsa('.nav-links a');const navObserver=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-15% 0px -55% 0px',threshold:.05});qsa('main section').forEach(s=>navObserver.observe(s));
+    const profileImg=qs('.profile-image'),fallback=qs('#initialsFallback');if(profileImg){profileImg.addEventListener('load',()=>{profileImg.classList.add('loaded');fallback.style.display='none'});profileImg.addEventListener('error',()=>{profileImg.style.display='none';fallback.style.display='flex'});if(profileImg.complete&&profileImg.naturalWidth){profileImg.classList.add('loaded');fallback.style.display='none'}}
+
+    function openProject(key){currentProject=key;galleryIndex=0;renderProjectInfo();renderGallery();qs('#projectModal').classList.add('active');body.style.overflow='hidden';}
+    function closeProject(){qs('#projectModal').classList.remove('active');body.style.overflow='';currentProject=null;}
+    function renderProjectInfo(){if(!currentProject)return;const p=projectData[currentProject],l=currentLang;qs('#projectModalKicker').textContent=p.type[l];qs('#projectModalHeader').textContent=p.title[l];qs('#projectType').textContent=p.type[l];qs('#projectModalTitle').textContent=p.title[l];qs('#projectLongDesc').textContent=p.desc[l];qs('#projectFeatures').innerHTML=p.features[l].map(x=>`<li>${x}</li>`).join('');qs('#projectTools').innerHTML=p.tools.map(x=>`<span>${x}</span>`).join('');qs('#projectActions').innerHTML=p.actions.map(a=>`<a class="${a.primary?'cta':'ghost-btn'}" href="${a.href}" ${a.external?'target="_blank" rel="noopener noreferrer"':''} ${a.download?'download':''}>${a[l]}</a>`).join('');renderGallery();}
+    function renderGallery(){if(!currentProject)return;const p=projectData[currentProject],img=qs('#galleryImage');galleryIndex=(galleryIndex+p.images.length)%p.images.length;img.classList.add('switching');setTimeout(()=>{img.src=p.images[galleryIndex];img.alt=p.captions[currentLang][galleryIndex];img.onload=()=>img.classList.remove('switching')},100);qs('#galleryCounter').textContent=`${galleryIndex+1} / ${p.images.length}`;qs('#galleryCaption').textContent=p.captions[currentLang][galleryIndex];qs('#galleryThumbs').innerHTML=p.images.map((s,i)=>`<button class="gallery-thumb ${i===galleryIndex?'active':''}" onclick="setGallery(${i})" aria-label="${i+1}"><img src="${s}" alt=""></button>`).join('');const active=qs('.gallery-thumb.active');if(active)active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
+    function moveGallery(step){if(!currentProject)return;galleryIndex+=step;renderGallery();}
+    function setGallery(i){galleryIndex=i;renderGallery();}
+    qs('#projectModal').addEventListener('click',e=>{if(e.target.id==='projectModal')closeProject()});document.addEventListener('keydown',e=>{if(!currentProject)return;if(e.key==='Escape')closeProject();if(e.key==='ArrowLeft')moveGallery(root.dir==='rtl'?1:-1);if(e.key==='ArrowRight')moveGallery(root.dir==='rtl'?-1:1)});
+    var touchX=0;qs('#galleryStage').addEventListener('touchstart',e=>touchX=e.changedTouches[0].clientX,{passive:true});qs('#galleryStage').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>45)moveGallery(dx>0?-1:1)},{passive:true});
+
+    function copyText(text){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);const t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();return Promise.resolve();}
+    qsa('.copy-action').forEach(btn=>btn.addEventListener('click',async()=>{const card=btn.closest('.contact-card');await copyText(card.dataset.copy);const old=btn.textContent;btn.textContent='✓';btn.classList.add('copied');setTimeout(()=>{btn.textContent=old;btn.classList.remove('copied')},1300)}));
+    const CONTACT_ENDPOINT='https://formsubmit.co/ajax/yosefyaboheen@gmail.com';
+    qs('#contactForm').addEventListener('submit',async e=>{
+      e.preventDefault();
+      const form=e.currentTarget;
+      const name=qs('#cf_name').value.trim();
+      const email=qs('#cf_email').value.trim();
+      const subject=qs('#cf_subject').value.trim();
+      const message=qs('#cf_message').value.trim();
+      const honey=qs('#cf_company').value.trim();
+      const status=qs('#formStatus');
+      const button=qs('#contactSubmit');
+      const label=button.querySelector('.submit-label');
+      const originalLabel=label.textContent;
+      const validEmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if(!name||!validEmail||!subject||!message){
+        status.textContent=currentLang==='ar'?'يرجى تعبئة جميع الحقول وكتابة بريد إلكتروني صحيح.':'Please complete all fields and enter a valid email address.';
+        status.className='form-status error show';
+        return;
+      }
+      if(honey) return;
+
+      button.disabled=true;
+      label.textContent=currentLang==='ar'?'جارٍ إرسال الرسالة...':'Sending message...';
+      const spinner=document.createElement('span');
+      spinner.className='spinner';
+      button.prepend(spinner);
+      status.className='form-status';
+      status.textContent='';
+
+      const controller=new AbortController();
+      const timeout=setTimeout(()=>controller.abort(),15000);
+      try{
+        const response=await fetch(CONTACT_ENDPOINT,{
+          method:'POST',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify({
+            name,
+            email,
+            _replyto:email,
+            subject,
+            _subject:'Portfolio Message: '+subject,
+            message,
+            _template:'table',
+            _honey:honey,
+            _url:window.location.href
+          }),
+          signal:controller.signal
+        });
+        const data=await response.json().catch(()=>({}));
+        if(!response.ok||data.success===false) throw new Error(data.message||'Submission failed');
+        form.reset();
+        status.textContent=currentLang==='ar'?'تم إرسال رسالتك بنجاح، شكرًا لتواصلك.':'Your message was sent successfully. Thank you for reaching out.';
+        status.className='form-status success show';
+      }catch(error){
+        const mailto='mailto:yosefyaboheen@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent((currentLang==='ar'?'الاسم: ':'Name: ')+name+'\\n'+(currentLang==='ar'?'بريد المرسل: ':'Sender email: ')+email+'\\n\\n'+message);
+        status.innerHTML=(currentLang==='ar'?'تعذر الإرسال المباشر الآن. تأكد من الإنترنت أو تشغيل الموقع عبر خادم، ثم حاول مجددًا. ':'Direct sending failed. Check your connection or run the website through a web server, then try again. ')+`<a href="${mailto}">${currentLang==='ar'?'استخدم البريد كحل بديل':'Use email as a fallback'}</a>`;
+        status.className='form-status error show';
+      }finally{
+        clearTimeout(timeout);
+        button.disabled=false;
+        label.textContent=originalLabel;
+        if(spinner.isConnected)spinner.remove();
+      }
+    });
+
+    window.openProject=openProject;window.closeProject=closeProject;window.moveGallery=moveGallery;window.setGallery=setGallery;window.applyLanguage=applyLanguage;window.applyTheme=applyTheme;
+    })();
 </script>
 </body>
 
