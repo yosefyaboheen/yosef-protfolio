@@ -1518,6 +1518,31 @@ body[dir="rtl"] {
 body[dir="ltr"] {
   direction: ltr;
 }
+        @media (max-width: 980px) {
+
+  .project-modal {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 97vh;
+  }
+
+  .project-modal-layout {
+    display: block;
+    overflow: visible;
+    min-height: auto;
+  }
+
+  .gallery-pane {
+    overflow: visible;
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project-info-pane {
+    overflow: visible;
+  }
+}
     </style>
 </head>
 <body>
